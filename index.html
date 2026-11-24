@@ -142,6 +142,33 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .s3{color:#8FD0A8;--r:-6deg;bottom:-20px;right:22%}
 @media (max-width:520px){.stamp{width:72px;height:72px;font-size:8px}.stamp b{font-size:10px}.stamp.rect{width:96px;height:52px}}
 
+
+/* ---------- phone layout ---------- */
+@media (max-width:700px){
+  .sec{padding-block:44px}
+  .sec-head{margin-bottom:22px}
+  h2{font-size:clamp(26px,7.4vw,34px)}
+  .hero-grid{padding-block:22px 40px;gap:22px}
+  .hero h1{font-size:clamp(32px,9.6vw,42px)}
+  .stage{padding:4px 0 12px}
+  .counters .wrap{padding-block:28px;gap:18px}
+  .cnt b{font-size:34px}
+  .visa-wrap{display:none}
+  .step{padding:18px}
+  .bp-page{display:none}
+  .roots-grid{gap:16px}
+  .tree-box svg.tree-base{margin-top:36px}
+  .tree-crown{top:36px}
+  .adv{padding-top:44px;padding-bottom:112px}
+  .lw{padding-top:6px}
+  .lw.mobile-open .letter{transform:rotate(-.6deg)}
+  .shots-h{margin:30px 0 14px}
+  .rev-head{margin-bottom:18px}
+  .yr{padding:16px}
+  .qbox{padding:18px}
+  .faq-list summary{padding:16px 26px 16px 0}
+  .art{padding-block:28px 64px}
+}
 /* ---------- lead modal ---------- */
 .lead-modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px}
 .lm-back{position:absolute;inset:0;background:rgba(10,16,48,.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);animation:lmfade .25s ease}
@@ -1795,7 +1822,7 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
 
   /* ---------- founder letter ---------- */
   const lw=$('letter');
-  if (!reduce && hasIO){
+  if (!reduce && hasIO && innerWidth>700){
     const L=lw.querySelector('.letter');
     const setDrop=()=>lw.style.setProperty('--drop', (L.offsetHeight - 10)+'px');
     setDrop(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(setDrop);
