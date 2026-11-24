@@ -347,22 +347,24 @@ body.lm-open{overflow:hidden}
 .v3{--c:#3E7A57;--r:-4deg;bottom:16%;left:14%}
 
 /* ---------- ADVANTAGES + sea ---------- */
-.adv{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden;padding-bottom:180px}
+.adv{background:var(--navy);color:var(--on-navy);position:relative;overflow:hidden;padding-top:60px;padding-bottom:132px}
+.adv .sec-head{margin-bottom:26px}
+.adv h2{font-size:clamp(26px,3.2vw,38px)}
 .adv h2{color:#fff}
 .adv .eyebrow{color:var(--brand-soft)}
-.adv-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 40px;list-style:none;margin:0;padding:0}
+.adv-list{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 40px;list-style:none;margin:0;padding:0}
 @media (max-width:800px){.adv-list{grid-template-columns:1fr}}
-.adv-list li{display:grid;grid-template-columns:44px 1fr;gap:14px;padding-block:18px;border-top:1px solid rgba(255,255,255,.1)}
-.adv-list svg{width:32px;height:32px;color:var(--brand-soft)}
+.adv-list li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding-block:12px;border-top:1px solid rgba(255,255,255,.1)}
+.adv-list svg{width:28px;height:28px;color:var(--brand-soft)}
 .adv-list b{display:block;color:#fff;font-weight:600;margin-bottom:4px}
 .adv-list span{font-size:14.5px;color:var(--on-navy-muted)}
-.sea{position:absolute;left:0;right:0;bottom:0;height:170px;pointer-events:none}
+.sea{position:absolute;left:0;right:0;bottom:0;height:128px;pointer-events:none}
 .sea svg{position:absolute;bottom:0;width:200%;height:100%;left:0}
 .w1{animation:wave 14s linear infinite}
 .w2{animation:wave 9s linear infinite reverse;opacity:.7}
 .w3{animation:wave 20s linear infinite;opacity:.5}
 @keyframes wave{to{transform:translateX(-50%)}}
-.swimmer{position:absolute;left:0;bottom:72px;width:76px;height:48px;will-change:transform;z-index:1}
+.swimmer{position:absolute;left:0;bottom:52px;width:64px;height:40px;will-change:transform;z-index:1}
 .sea svg.w2,.sea svg.w1{z-index:2}
 .sw-flip{width:100%;height:100%;transition:transform .35s ease}
 .swimmer.left .sw-flip{transform:scaleX(-1)}
@@ -382,7 +384,7 @@ body.lm-open{overflow:hidden}
 .sw-splash{transform-box:fill-box}
 @media (prefers-reduced-motion: reduce){.sw-bob,.swimmer.go .sw-arm,.swimmer.go .sw-splash{animation:none}}
 
-.sun{position:absolute;right:12%;bottom:90px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,#FFD98A,#F2A65A);box-shadow:0 0 80px 20px rgba(242,166,90,.35)}
+.sun{position:absolute;right:12%;bottom:68px;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle,#FFD98A,#F2A65A);box-shadow:0 0 80px 20px rgba(242,166,90,.35)}
 
 /* ---------- PRICES (tickets) ---------- */
 .tabs{display:inline-flex;background:var(--brand-pale);padding:5px;border-radius:999px;margin-bottom:30px;flex-wrap:wrap}
