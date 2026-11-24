@@ -174,7 +174,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
   /* process: slim sticky visa strip, stamps land while you scroll the steps */
   .proc-grid{gap:14px}
   #proces .visa-wrap{position:sticky;top:calc(62px + env(safe-area-inset-top,0px));z-index:6;order:-1}
-  #proces .visa{aspect-ratio:auto;height:118px;max-width:none;padding:10px 12px;border-radius:12px;box-shadow:0 14px 30px -18px rgba(24,38,91,.55)}
+  #proces .visa{aspect-ratio:auto;height:128px;max-width:none;padding:10px 12px;border-radius:12px;box-shadow:0 14px 30px -18px rgba(24,38,91,.55)}
   .visa .vh{font-size:9px}
   .visa .pn{display:none}
   .vst{font-size:8px;padding:5px 7px;border-width:2px}
@@ -206,7 +206,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
   .lw.m-go .sign{transition:clip-path .8s ease 2.1s}
   .lw.m-go .sign-sub{transition:opacity .4s ease 2.8s}
 }
-.mini-pass{display:none;align-items:center;gap:6px;flex-wrap:nowrap}
+.mini-pass{display:none;align-items:center;justify-content:center;gap:6px;flex-wrap:nowrap}
+.mini-pass i{flex:0 0 36px!important;max-width:none!important;font-size:7px!important}
 .mini-pass .mp-l{font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--muted);margin-right:2px;white-space:nowrap}
 .mini-pass i{flex:1;max-width:40px;aspect-ratio:1;border-radius:50%;border:1.5px dashed #C3CEE4;display:flex;align-items:center;justify-content:center;font:600 7.5px/1 var(--mono);color:#A8B4CC;font-style:normal;text-transform:uppercase;letter-spacing:.02em;text-align:center;transition:background .2s,border-color .2s,color .2s}
 .mini-pass i.on{border:2px solid var(--c);color:var(--c);background:color-mix(in srgb,var(--c) 10%,#fff);animation:mthump .4s cubic-bezier(.2,1.6,.4,1)}
