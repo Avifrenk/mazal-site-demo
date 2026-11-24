@@ -394,6 +394,12 @@ body.lm-open{overflow:hidden}
 @media (max-width:1100px){.tickets{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.tickets{grid-template-columns:1fr}}
 .tickets.three{grid-template-columns:repeat(3,1fr)}
+.tickets.two{grid-template-columns:repeat(2,minmax(0,360px))}
+@media (max-width:620px){.tickets.two{grid-template-columns:1fr}}
+.tk-note{font-size:12px;color:var(--muted);margin:-4px 0 10px}
+.tk.dark .tk-note{color:var(--on-navy-muted)}
+.addon{font-size:12.5px;font-weight:600;color:var(--brand);background:var(--brand-pale);border-radius:8px;padding:7px 10px;margin-bottom:10px}
+.tk.dark .addon{background:rgba(95,162,255,.14);color:var(--brand-soft)}
 @media (max-width:900px){.tickets.three{grid-template-columns:1fr}}
 .tk{position:relative;background:#fff;border-radius:16px;display:flex;flex-direction:column;box-shadow:0 20px 40px -28px rgba(24,38,91,.45);transition:transform .25s}
 .tk:hover{transform:translateY(-4px)}
@@ -938,26 +944,19 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
       <button type="button" role="tab" aria-selected="false" data-tab="p2">Визы ещё нет</button>
     </div>
     <div class="panel" id="p1">
-      <div class="tickets three">
-        <article class="tk"><div class="tk-top"><div class="kind">Услуга</div><h3>Только МВД</h3><div class="days">до 4 рабочих дней</div><div class="price"><small>от</small> $1 500</div></div><div class="tk-cut"></div>
-          <div class="tk-body"><ul><li>Заграничный паспорт</li><li>Внутренний паспорт</li><li>Консультация по дальнейшим действиям</li><li>Сопровождение на авто</li></ul><a class="btn ghost" href="#contact" data-lead="pkg" data-pkg="Только МВД">Заказать</a></div></article>
-        <article class="tk"><div class="tk-top"><div class="kind">Пакет</div><h3>Лайт</h3><div class="days">до 7 рабочих дней</div><div class="price"><small>от</small> $2 450</div></div><div class="tk-cut"></div>
-          <div class="tk-body"><ul><li>Запись в МВД</li><li>Заграничный и внутренний паспорт</li><li>Больничная касса</li><li>Счёт в банке</li><li>Водительское удостоверение</li><li>Мобильная связь</li><li>Сопровождение на авто</li><li>Доставка документов в Россию</li></ul>
-          <div class="extra"><div>+$150 Министерство абсорбции и алии</div><div>+$150 Сохнут и оповещение Натива</div></div><a class="btn ghost" href="#contact" data-lead="pkg" data-pkg="Лайт">Заказать</a></div></article>
-        <article class="tk"><div class="tk-top"><div class="kind">Пакет</div><h3>Самостоятельно</h3><div class="days">удалённое сопровождение</div><div class="price"><small>от</small> $1 000</div></div><div class="tk-cut"></div>
-          <div class="tk-body"><ul><li>Личный менеджер 24/7</li><li>Пошаговая «Инструкция нового репатрианта»</li></ul>
-          <div class="extra"><div>+$150 Запись в МВД (до 3 человек)</div><div>+$200 Получение и отправка документов</div><div>+$300 Счёт в банке без очередей</div></div><a class="btn ghost" href="#contact" data-lead="pkg" data-pkg="Самостоятельно">Заказать</a></div></article>
+      <div class="tickets two">
+        <article class="tk"><div class="tk-top"><div class="kind">Услуга</div><h3>Только МВД</h3><div class="days">до 4 рабочих дней</div><div class="price"><small>от</small> $1 550</div></div><div class="tk-cut"></div>
+          <div class="tk-body"><ul><li>Заграничный паспорт</li><li>Внутренний паспорт*</li><li>Заполнение отказа от отказа</li><li>Консультация по дальнейшим действиям</li><li>Сопровождение на авто</li><li>Получение и пересылка в страну исхода</li></ul><div class="tk-note">*Внутренний паспорт клиент получает только лично</div><a class="btn ghost" href="#contact" data-lead="pkg" data-pkg="Только МВД">Заказать</a></div></article>
+        <article class="tk dark"><div class="tk-top"><div class="kind">Пакет</div><h3>Лайт</h3><div class="days">до 7 рабочих дней</div><div class="price"><small>от</small> $2 500</div></div><div class="tk-cut"></div>
+          <div class="tk-body"><ul><li>Запись в МВД</li><li>Заграничный и внутренний паспорт*</li><li>Счёт в банке</li><li>Водительское удостоверение</li><li>Мобильная связь</li><li>Сопровождение на авто</li><li>Доставка документов в Россию</li></ul><div class="tk-note">*Внутренний паспорт клиент получает только лично</div><div class="addon">+$50 / чел. — заполнение формы отказа от резидентства</div><div class="extra"><div>+$150 Министерство абсорбции и алии</div><div>+$150 Сохнут и оповещение Натива</div></div><a class="btn" href="#contact" data-lead="pkg" data-pkg="Лайт">Заказать</a></div></article>
       </div>
     </div>
     <div class="panel" id="p2" hidden>
-      <div class="tickets">
-        <article class="tk"><div class="tk-top"><div class="kind">Пакет</div><h3>Медиум</h3><div class="days">5 рабочих дней в Израиле</div><div class="price"><small>от</small> $3 000</div></div><div class="tk-cut"></div>
-          <div class="tk-body"><div class="base">Всё из «Лайт», плюс:</div><ul><li>Проверка документов и рекомендации к поиску</li><li>Подготовка к собеседованию с консулом</li><li>Запись в консульство</li><li>Подача документов в Сохнут</li><li>Оповещение Натива о прибытии</li></ul>
-          <div class="extra"><div>+ Архивный поиск по запросу</div></div><a class="btn ghost" href="#contact" data-lead="pkg" data-pkg="Медиум">Заказать</a></div></article>
-        <article class="tk dark"><div class="tk-top"><div class="kind">Пакет</div><h3>Оптимальный</h3><div class="days">до 3 рабочих дней</div><div class="price"><small>от</small> $7 500</div></div><div class="tk-cut"></div>
-          <div class="tk-body"><div class="base" style="color:var(--brand-soft)">Всё из «Медиум», плюс:</div><ul><li>Трансфер до места проживания</li><li>Права от 1 рабочего дня</li><li>Министерство абсорбции и алии</li><li>Фаст-трек на прилёт</li><li>Абонентское обслуживание 6 месяцев</li></ul><a class="btn" href="#contact" data-lead="pkg" data-pkg="Оптимальный">Заказать</a></div></article>
-        <article class="tk"><div class="tk-top"><div class="kind">Пакет</div><h3>Премиум</h3><div class="days">всё включено</div><div class="price"><small>от</small> $15 000</div></div><div class="tk-cut"></div>
-          <div class="tk-body"><div class="base">Всё из «Оптимального», плюс:</div><ul><li>Архивный поиск документов</li><li>Отказ от резидентства</li><li>Почтовая ячейка на 1 год</li><li>Фаст-трек на прилёт и вылет</li><li>Визы в США и Великобританию</li><li>Авто премиум-класса</li></ul><a class="btn ghost" href="#contact" data-lead="pkg" data-pkg="Премиум">Заказать</a></div></article>
+      <div class="tickets three">
+        <article class="tk"><div class="tk-top"><div class="kind">Пакет</div><h3>Медиум</h3><div class="days">5 рабочих дней в Израиле</div><div class="price"><small>от</small> $3 500</div></div><div class="tk-cut"></div>
+          <div class="tk-body"><div class="base">Всё из «Лайт», плюс:</div><ul><li>Проверка документов и рекомендации к поиску</li><li>Подготовка к собеседованию с консулом</li><li>Запись в консульство</li><li>Подача документов в Сохнут</li><li>Оповещение Натива о прибытии</li></ul><div class="addon">+$50 / чел. — заполнение формы отказа от резидентства</div><div class="extra"><div>+ Архивный поиск по запросу</div></div><a class="btn ghost" href="#contact" data-lead="pkg" data-pkg="Медиум">Заказать</a></div></article>
+        <article class="tk dark"><div class="tk-top"><div class="kind">Пакет</div><h3>Премиум</h3><div class="days">всё включено</div><div class="price"><small>от</small> $16 000</div></div><div class="tk-cut"></div>
+          <div class="tk-body"><div class="base">Всё из «Медиум», плюс:</div><ul><li>Трансфер до места проживания</li><li>Министерство абсорбции и алии</li><li>Архивный поиск документов</li><li>Почтовая ячейка на 1 год</li><li>Фаст-трек на прилёт и вылет</li><li>Визы в США и Великобританию</li><li>Авто премиум-класса</li><li>Абонентское обслуживание 6 месяцев</li></ul><div class="addon">+$50 / чел. — заполнение формы отказа от резидентства</div><a class="btn" href="#contact" data-lead="pkg" data-pkg="Премиум">Заказать</a></div></article>
         <article class="tk"><div class="tk-top"><div class="kind">Услуга</div><h3>Архивный поиск</h3><div class="days">срок зависит от архивов</div><div class="price"><small>от</small> $2 300</div></div><div class="tk-cut"></div>
           <div class="tk-body"><ul><li>Стратегия поиска</li><li>Поиск в любом архиве России и СНГ</li><li>Генеалогические связи</li><li>Поиск еврейских корней</li><li>Копии архивных документов</li><li>Структурирование данных</li></ul><a class="btn ghost" href="#contact" data-lead="pkg" data-pkg="Архивный поиск">Заказать</a></div></article>
       </div>
@@ -975,7 +974,7 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
         <div class="bi" role="checkbox" aria-checked="false" tabindex="0" data-id="mvd" style="--c:#2F5C9A">
           <div class="bi-top"><span class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16h6"/></svg></span><span class="bi-box" aria-hidden="true"></span></div>
           <div class="bi-t">МВД</div><div class="bi-s">Паспорта</div>
-          <ul><li>Заказ внутреннего паспорта (теудат зеут)</li><li>Заказ заграничного паспорта</li></ul>
+          <ul><li>Заказ внутреннего паспорта (теудат зеут), получает клиент лично</li><li>Заказ заграничного паспорта</li></ul>
         </div>
         <div class="bi" role="checkbox" aria-checked="false" tabindex="0" data-id="drive" style="--c:#B5473A">
           <div class="bi-top"><span class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-5a2 2 0 0 1 2-1.5h7a2 2 0 0 1 2 1.5L19 16"/><rect x="4" y="16" width="16" height="3" rx="1"/><circle cx="8" cy="19.5" r="1"/><circle cx="16" cy="19.5" r="1"/></svg></span><span class="bi-box" aria-hidden="true"></span></div>
