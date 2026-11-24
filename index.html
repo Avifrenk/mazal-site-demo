@@ -301,9 +301,8 @@ body.lm-open{overflow:hidden}
 .trunk{transform-box:fill-box;transform-origin:50% 100%}
 .cluster,.olive-fruit,.person{transform-box:fill-box;transform-origin:center}
 .csway{transform-box:view-box}
-.alive .tree-crown{animation:crownsway 5s ease-in-out infinite alternate}
-@keyframes crownsway{from{transform:rotate(-1.2deg)}to{transform:rotate(1.4deg)}}
-.alive .csway{animation:csway var(--sd,3s) ease-in-out var(--sdl,0s) infinite alternate}
+.alive .tree-crown{animation:crownsway 4.2s ease-in-out infinite alternate}
+@keyframes crownsway{0%{transform:rotate(-1.4deg) skewX(.4deg)}50%{transform:rotate(.4deg) skewX(-.3deg)}100%{transform:rotate(1.6deg) skewX(.5deg)}}
 @keyframes csway{from{transform:rotate(-2.6deg)}to{transform:rotate(2.6deg)}}
 .p-stem{fill:none;stroke:#5E4D3A;stroke-width:2;stroke-linecap:round}
 .p-leaf{fill:#6F7F45}
@@ -316,7 +315,6 @@ body.lm-open{overflow:hidden}
 .me-badge rect{fill:#5E6B35;stroke:#C9A04F;stroke-width:1.2}
 .me-badge text{font-family:var(--body);font-size:12px;font-weight:700;fill:#F4EFDD}
 .me-glow{fill:none;stroke:#C9A04F;stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}
-.alive .me-glow{animation:meglow 2.2s ease-out infinite}
 @keyframes meglow{0%{opacity:.7;transform:scale(1)}100%{opacity:0;transform:scale(1.7)}}
 @media (prefers-reduced-motion: reduce){.alive .tree-crown,.alive .csway,.alive .me-glow{animation:none}}
 
