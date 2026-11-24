@@ -153,15 +153,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
   .stage{padding:4px 0 12px}
   .counters .wrap{padding-block:28px;gap:18px}
   .cnt b{font-size:34px}
-  .visa-wrap{display:none}
   .step{padding:18px}
-  .bp-page{display:none}
   .roots-grid{gap:16px}
   .tree-box svg.tree-base{margin-top:36px}
   .tree-crown{top:36px}
   .adv{padding-top:44px;padding-bottom:112px}
   .lw{padding-top:6px}
-  .lw.mobile-open .letter{transform:rotate(-.6deg)}
   .shots-h{margin:30px 0 14px}
   .rev-head{margin-bottom:18px}
   .yr{padding:16px}
@@ -169,6 +166,47 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
   .faq-list summary{padding:16px 26px 16px 0}
   .art{padding-block:28px 64px}
 }
+
+/* ---------- phone: adapted animations ---------- */
+@media (max-width:700px){
+  .fl-plane{width:20px!important;height:20px!important;margin:-10px 0 0 -10px!important}
+  .fl-home{right:18px;font-size:11px;padding:6px 10px}
+  /* process: slim sticky visa strip, stamps land while you scroll the steps */
+  .proc-grid{gap:14px}
+  .visa-wrap{position:sticky;top:calc(62px + env(safe-area-inset-top,0px));z-index:6;order:-1}
+  .visa{aspect-ratio:auto;height:118px;max-width:none;padding:10px 12px;border-radius:12px;box-shadow:0 14px 30px -18px rgba(24,38,91,.55)}
+  .visa .vh{font-size:9px}
+  .visa .pn{display:none}
+  .vst{font-size:8px;padding:5px 7px;border-width:2px}
+  .vst b{font-size:10px}
+  .vst.round{width:74px;height:74px}
+  .v1{top:30px;left:4%}.v2{top:18px;left:38%;right:auto}.v3{top:32px;left:auto;right:3%;bottom:auto}
+  /* builder: the passport becomes a mini stamp strip inside the sticky bar */
+  .bld-side{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));top:auto;z-index:6;gap:0}
+  .bp-page{display:none}
+  .bld-bar{flex-direction:column;align-items:stretch;gap:10px;padding:12px}
+  .bld-bar .btn{justify-content:center}
+  .mini-pass{display:flex!important}
+  /* letter: no empty screen, the letter slides out right away */
+  .lw.m-sealed .letter{transform:translateY(70px) scale(.96);opacity:0}
+  .lw.m-sealed .env-flap{transform:rotateX(0deg);z-index:4}
+  .lw.m-sealed .wax{opacity:1;transform:none}
+  .lw.m-sealed .ln{opacity:0;filter:blur(5px);transform:translateY(6px)}
+  .lw.m-sealed .sign{clip-path:inset(0 100% 0 0)}
+  .lw.m-sealed .sign-sub,.lw.m-sealed .ls-ph{opacity:0}
+  .lw.m-go .letter{transition:transform .8s cubic-bezier(.25,.8,.25,1) .45s, opacity .5s ease .45s}
+  .lw.m-go .wax{transition:opacity .3s ease .05s, transform .4s cubic-bezier(.5,0,.8,.4) .05s}
+  .lw.m-go .env-flap{transition:transform .45s ease .15s, z-index 0s .4s}
+  .lw.m-go .ln{transition:opacity .6s ease calc(.9s + var(--i)*.22s), filter .6s ease calc(.9s + var(--i)*.22s), transform .6s ease calc(.9s + var(--i)*.22s)}
+  .lw.m-go .ls-ph{transition:opacity .4s ease 2s}
+  .lw.m-go .sign{transition:clip-path .8s ease 2.1s}
+  .lw.m-go .sign-sub{transition:opacity .4s ease 2.8s}
+}
+.mini-pass{display:none;align-items:center;gap:6px;flex-wrap:nowrap}
+.mini-pass .mp-l{font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--muted);margin-right:2px;white-space:nowrap}
+.mini-pass i{flex:1;max-width:40px;aspect-ratio:1;border-radius:50%;border:1.5px dashed #C3CEE4;display:flex;align-items:center;justify-content:center;font:600 7.5px/1 var(--mono);color:#A8B4CC;font-style:normal;text-transform:uppercase;letter-spacing:.02em;text-align:center;transition:background .2s,border-color .2s,color .2s}
+.mini-pass i.on{border:2px solid var(--c);color:var(--c);background:color-mix(in srgb,var(--c) 10%,#fff);animation:mthump .4s cubic-bezier(.2,1.6,.4,1)}
+@keyframes mthump{0%{transform:scale(1.7) rotate(-12deg);opacity:0}100%{transform:none;opacity:1}}
 /* ---------- lead modal ---------- */
 .lead-modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px}
 .lm-back{position:absolute;inset:0;background:rgba(10,16,48,.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);animation:lmfade .25s ease}
@@ -201,7 +239,7 @@ body.lm-open{overflow:hidden}
 .fl-home{position:absolute;right:44px;bottom:-12px;white-space:nowrap;background:var(--brand);color:#fff;font:600 12px/1 var(--body);padding:8px 12px;border-radius:999px;box-shadow:0 8px 20px -8px rgba(0,110,254,.7);opacity:0;transform:translateX(10px) scale(.9);transition:opacity .35s, transform .45s cubic-bezier(.2,1.6,.4,1)}
 .flight.landed .fl-home{opacity:1;transform:none}
 [data-view="article"] .flight{display:none}
-@media (max-width:700px){.flight{display:none}.flight{right:2px;width:30px}.fl-plane{width:28px;height:28px;margin:-14px 0 0 -14px}.fl-route{opacity:.6}.fl-home{right:30px}}
+@media (max-width:700px){.flight{right:0;width:14px;top:calc(64px + env(safe-area-inset-top,0px))}.fl-route{opacity:.45}.fl-plane{width:28px;height:28px;margin:-14px 0 0 -14px}.fl-route{opacity:.6}.fl-home{right:30px}}
 /* ---------- COUNTERS ---------- */
 .counters{background:var(--navy-2);color:#fff}
 .counters .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-block:40px}
@@ -1142,6 +1180,7 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
           <div class="bp-pn">— 1 —</div>
         </div>
         <div class="bld-bar">
+          <div class="mini-pass" aria-hidden="true"><span class="mp-l">МОЙ ПАКЕТ</span><i data-m="mvd" style="--c:#2F5C9A">МВД</i><i data-m="drive" style="--c:#B5473A">Права</i><i data-m="kupa" style="--c:#3E7A57">Купа</i><i data-m="bank" style="--c:#7A4FA0">Банк</i><i data-m="absorb" style="--c:#2E7F8F">Корз.</i><i data-m="sup" style="--c:#B8862F">Подд.</i></div>
           <span id="bld-count">Пока ничего не выбрано</span>
           <button class="btn" type="button" id="bld-send" disabled>Отправить менеджеру</button>
         </div>
@@ -1748,7 +1787,7 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
     function word(n){ const m10=n%10,m100=n%100; return (m10===1&&m100!==11)?'услуга':(m10>=2&&m10<=4&&(m100<12||m100>14))?'услуги':'услуг'; }
     function sync(){
       const on=tiles.filter(t=>t.getAttribute('aria-checked')==='true');
-      tiles.forEach(t=>{ const sl=document.querySelector('.slot[data-slot="'+t.dataset.id+'"]'); if (sl) sl.classList.toggle('on',t.getAttribute('aria-checked')==='true'); });
+      tiles.forEach(t=>{ const on=t.getAttribute('aria-checked')==='true'; const sl=document.querySelector('.slot[data-slot="'+t.dataset.id+'"]'); if (sl) sl.classList.toggle('on',on); const mi=document.querySelector('.mini-pass i[data-m="'+t.dataset.id+'"]'); if (mi && mi.classList.contains('on')!==on){ mi.classList.toggle('on',on); } });
       const sup=tiles.find(t=>t.dataset.id==='sup'), per=sup.dataset.period;
       document.querySelector('.slot[data-slot="sup"] .bst-s').textContent=per+' месяцев';
       window.__bldPicked=on.map(t=>t.dataset.id==='sup'?'Поддержка '+per+' месяцев':NAMES[t.dataset.id]);
@@ -1822,6 +1861,10 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
 
   /* ---------- founder letter ---------- */
   const lw=$('letter');
+  if (!reduce && hasIO && innerWidth<=700){
+    lw.classList.add('m-sealed');
+    onSee(lw, ()=>{ lw.classList.add('m-go'); requestAnimationFrame(()=>requestAnimationFrame(()=>lw.classList.remove('m-sealed'))); }, .05);
+  }
   if (!reduce && hasIO && innerWidth>700){
     const L=lw.querySelector('.letter');
     const setDrop=()=>lw.style.setProperty('--drop', (L.offsetHeight - 10)+'px');
