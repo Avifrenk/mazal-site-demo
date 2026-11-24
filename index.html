@@ -79,7 +79,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .hint{font-size:12px;color:#7D87A2}
 .paths{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px;max-width:520px}
 @media (max-width:520px){.paths{grid-template-columns:1fr}}
-.path{display:flex;flex-direction:column;gap:4px;padding:16px 18px;border-radius:14px;background:var(--brand);color:#fff;text-decoration:none;transition:transform .15s, background .2s}
+.path{display:flex;flex-direction:column;gap:4px;padding:16px 18px;border-radius:14px;background:var(--brand);color:#fff;text-decoration:none;border:0;font:inherit;text-align:left;cursor:pointer;transition:transform .15s, background .2s}
 .path:hover{transform:translateY(-2px);background:#2D86FF}
 .path b{font-size:16px}
 .path span{font-size:13px;line-height:1.4;color:rgba(255,255,255,.82)}
@@ -136,6 +136,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .s3{color:#8FD0A8;--r:-6deg;bottom:-20px;right:22%}
 @media (max-width:520px){.stamp{width:72px;height:72px;font-size:8px}.stamp b{font-size:10px}.stamp.rect{width:96px;height:52px}}
 
+/* ---------- lead modal ---------- */
+.lead-modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:16px}
+.lm-back{position:absolute;inset:0;background:rgba(10,16,48,.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);animation:lmfade .25s ease}
+.lm-box{position:relative;width:min(460px,100%);max-height:calc(100% - 32px);overflow:auto;background:#fff;color:var(--text);border-radius:20px;padding:30px 28px 26px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);animation:lmup .35s cubic-bezier(.2,1.2,.4,1)}
+@keyframes lmfade{from{opacity:0}}
+@keyframes lmup{from{opacity:0;transform:translateY(24px) scale(.97)}}
+.lm-x{position:absolute;top:12px;right:14px;width:36px;height:36px;border:0;background:var(--brand-pale);border-radius:50%;font-size:22px;line-height:1;color:var(--ink);cursor:pointer}
+.lm-tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);border:1.5px solid var(--brand);border-radius:6px;padding:4px 8px;transform:rotate(-2deg)}
+.lm-box h3{font-size:26px;line-height:1.15;margin:14px 0 8px}
+.lm-box p{margin:0 0 18px;font-size:15px}
+.lm-form{display:grid;gap:12px}
+.lm-form label{display:grid;gap:6px;font-size:13px;font-weight:500;color:var(--ink)}
+.lm-form input[type=text],.lm-form input[type=tel],.lm-form select{font:inherit;padding:13px 14px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);width:100%}
+.lm-form input:focus,.lm-form select:focus{outline:none;border-color:var(--brand)}
+.lm-chk{display:flex!important;grid-template-columns:none;align-items:flex-start;gap:10px;font-weight:400!important;color:var(--muted)!important}
+.lm-form .btn{justify-content:center;margin-top:4px}
+.lm-done{padding:12px 14px;border-radius:10px;background:#E8F6EE;color:#23633F;font-size:14px}
+body.lm-open{overflow:hidden}
 /* ---------- COUNTERS ---------- */
 .counters{background:var(--navy-2);color:#fff}
 .counters .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-block:40px}
@@ -502,8 +520,8 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
         <div class="hint">Написание примерное. Окончательное утверждает МВД Израиля при выдаче документов.</div>
       </div>
       <div class="paths">
-        <a class="path" href="#prices" data-open-tab="p1"><b>Виза уже есть →</b><span>Оформим всё в Израиле за 2–5 рабочих дней</span></a>
-        <a class="path alt" href="#quiz"><b>Визы ещё нет →</b><span>Проверим право и подготовим к консулу</span></a>
+        <button class="path" type="button" data-lead="visa"><b>Виза уже есть →</b><span>Оформим всё в Израиле за 2–5 рабочих дней</span></button>
+        <button class="path alt" type="button" data-lead="novisa"><b>Визы ещё нет →</b><span>Проверим право и подготовим к консулу</span></button>
       </div>
       <div class="trust">1000+ репатриантов · иврит и русский · менеджер 24/7</div>
     </div>
@@ -941,6 +959,24 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
   </article>
 </div>
 
+
+<div class="lead-modal" id="lead-modal" hidden>
+  <div class="lm-back" data-close></div>
+  <div class="lm-box" role="dialog" aria-modal="true" aria-labelledby="lm-title">
+    <button class="lm-x" type="button" data-close aria-label="Закрыть">×</button>
+    <div class="lm-tag" id="lm-tag">Виза уже есть</div>
+    <h3 id="lm-title">Оформим всё в Израиле за 2–5 рабочих дней</h3>
+    <p id="lm-sub">Оставьте контакты, менеджер свяжется с вами и расскажет, с чего начать.</p>
+    <form class="lm-form" id="lm-form" novalidate>
+      <label for="lm-name">Имя<input id="lm-name" type="text" autocomplete="name" required></label>
+      <label for="lm-phone">Телефон<input id="lm-phone" type="tel" autocomplete="tel" placeholder="+7 ..." required></label>
+      <label for="lm-msg">Где удобнее общаться<select id="lm-msg"><option>Telegram</option><option>WhatsApp</option><option>Звонок</option></select></label>
+      <label class="lm-chk" for="lm-ok"><input id="lm-ok" type="checkbox" checked> Я согласен с политикой конфиденциальности</label>
+      <button class="btn" type="submit">Связаться с менеджером</button>
+      <div class="lm-done" id="lm-done" role="status" hidden>Это демо-версия сайта: заявка никуда не отправилась. На живом сайте здесь будет подтверждение.</div>
+    </form>
+  </div>
+</div>
 <footer>
   <div class="wrap">
     <a class="logo" href="#top"><img alt="" src="data:image/png;base64,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">МАЗАЛЬ</a>
@@ -1060,6 +1096,26 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
   else { setTimeout(()=>passport.classList.add('open'),1500); render('Анна Левина',2300); }
   let deb;
   $('name').addEventListener('input', e=>{ clearTimeout(deb); deb=setTimeout(()=>render(e.target.value||'Анна Левина',0),450); });
+
+  /* ---------- lead modal ---------- */
+  const lm=$('lead-modal');
+  const LEADS={
+    visa:{tag:'Виза уже есть',title:'Оформим всё в Израиле за 2–5 рабочих дней',sub:'Оставьте контакты, менеджер свяжется с вами, подберёт пакет и согласует даты.'},
+    novisa:{tag:'Визы ещё нет',title:'Проверим ваше право и подготовим к консулу',sub:'Оставьте контакты, менеджер свяжется с вами и бесплатно разберёт ваш случай.'}
+  };
+  let lmFrom=null;
+  function openLead(kind, from){
+    const d=LEADS[kind]||LEADS.visa;
+    $('lm-tag').textContent=d.tag; $('lm-title').textContent=d.title; $('lm-sub').textContent=d.sub;
+    $('lm-done').hidden=true; lm.dataset.kind=kind;
+    lm.hidden=false; document.body.classList.add('lm-open'); lmFrom=from||null;
+    setTimeout(()=>$('lm-name').focus(),50);
+  }
+  function closeLead(){ lm.hidden=true; document.body.classList.remove('lm-open'); if (lmFrom) lmFrom.focus(); }
+  document.querySelectorAll('[data-lead]').forEach(b=>b.addEventListener('click',()=>openLead(b.dataset.lead,b)));
+  lm.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeLead));
+  document.addEventListener('keydown',e=>{ if (e.key==='Escape' && !lm.hidden) closeLead(); });
+  $('lm-form').addEventListener('submit',e=>{ e.preventDefault(); $('lm-done').hidden=false; });
 
   /* ---------- counters ---------- */
   document.querySelectorAll('[data-count]').forEach(el=>{
