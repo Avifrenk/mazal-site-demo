@@ -650,6 +650,31 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
 
 /* ---------- ARTICLE ---------- */
 #article{background:var(--paper)}
+.art[hidden]{display:none!important}
+.art h3.cl-h{font-size:18px;margin:22px 0 10px}
+.tldr{background:var(--navy-2);color:var(--on-navy);border-radius:16px;padding:20px 24px;margin:26px 0}
+.tldr b{color:#fff}
+.tldr>b{display:block;font-family:var(--display);font-weight:400;font-size:22px;margin-bottom:8px}
+.tldr ul{margin:0;padding-left:20px}
+.tldr li{font-size:16px;margin:6px 0}
+.docs-vs{display:flex;align-items:center;justify-content:center;gap:18px;margin:30px 0;flex-wrap:wrap}
+.dv{width:132px;aspect-ratio:88/125;border-radius:6px 10px 10px 6px;display:flex;flex-direction:column;align-items:center;justify-content:space-around;padding:12px 8px;color:#E3C27A;box-shadow:0 18px 30px -14px rgba(10,16,48,.5);text-align:center}
+.dv.red{background:linear-gradient(160deg,#8E1E2C,#5E101B)}
+.dv.blue{background:linear-gradient(160deg,#1F3060,#0F1A3A)}
+.dv .he{font-family:var(--hebrew);font-weight:700;font-size:15px}
+.dv .en{font-size:7.5px;letter-spacing:.2em}
+.dv .emb{font-size:30px;line-height:1}
+.dv-arrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--muted)}
+.tbl{overflow-x:auto;margin:14px 0}
+.tbl table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px;background:#fff;border-radius:12px;overflow:hidden}
+.tbl th,.tbl td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{background:var(--brand-pale);color:var(--ink);font-weight:600}
+.tbl td:first-child{font-weight:600;color:var(--ink);white-space:nowrap}
+.clist{display:flex;flex-wrap:wrap;gap:7px}
+.clist span{font-size:14px;padding:6px 12px;border-radius:999px;background:#E8F6EE;color:#23633F;border:1px solid #BFE5CF}
+.clist.need span{background:#FDECEA;color:#9A2F24;border-color:#F3C3BC}
+.art .upd{font-size:13px;color:var(--muted);margin-top:24px}
+
 .art{max-width:760px;margin:0 auto;padding-block:56px 96px}
 .art .back{display:inline-block;margin-bottom:28px;color:var(--brand);text-decoration:none;font-weight:600;font-size:14px}
 .art h1{font-size:clamp(32px,4.6vw,50px);line-height:1.1;margin:10px 0 20px}
@@ -1107,7 +1132,7 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
     <div class="blog-grid">
       <a class="post" href="#apostil"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h4"/><circle cx="16" cy="17" r="2.5"/></svg></div><div class="pb"><h3>Апостиль: важный шаг на пути репатриации</h3><p>Что это за удостоверение, на какие документы его ставят и где сделать в Москве.</p><span class="rd">Читать →</span></div></a>
       <a class="post" href="https://www.mazal.team/repartiaciya_2023" target="_blank" rel="noopener"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16h6"/></svg></div><div class="pb"><h3>Как получить гражданство Израиля: советы будущим репатриантам</h3><p>Отвечаем на главный вопрос любого репатрианта.</p><span class="rd">Читать →</span></div></a>
-      <a class="post" href="https://www.mazal.team/pravila_vezda_2023" target="_blank" rel="noopener"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 16l20-6-3-3-7 3-6-4-2 1 4 5-4 2z"/><path d="M3 21h18"/></svg></div><div class="pb"><h3>Правила въезда в Израиль для россиян</h3><p>Всё, что нужно знать перед поездкой.</p><span class="rd">Читать →</span></div></a>
+      <a class="post" href="#lessepasse"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6"/><path d="M2 16l6-2" /></svg></div><div class="pb"><h3>Куда можно летать с Лессе-Пассе в 2026–2027</h3><p>Чем теудат маавар отличается от даркона, когда оформлять даркон и список стран без визы.</p><span class="rd">Читать →</span></div></a>
     </div>
   </div>
 </section>
@@ -1141,7 +1166,7 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
 
 <!-- ARTICLE -->
 <div id="article">
-  <article class="wrap art">
+  <article class="wrap art" data-slug="apostil">
     <a class="back" href="#blog">← Ко всем статьям</a>
     <div class="eyebrow">Блог · Документы</div>
     <h1>Апостиль: важный шаг на пути репатриации в Израиль</h1>
@@ -1183,6 +1208,69 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
     </ul>
     <p>В среднем апостиль ставят за пять рабочих дней. Срока давности у него нет: документ действует, пока не истечёт его собственный срок.</p>
     <div class="callout"><b>Мы знаем, как быстро и без проблем апостилировать ваши документы.</b><br><a class="btn" href="#contact" data-lead="apostil" style="margin-top:14px">Получить консультацию</a></div>
+  </article>
+  <article class="wrap art" data-slug="lessepasse" hidden>
+    <a class="back" href="#blog">← Ко всем статьям</a>
+    <div class="eyebrow">Блог · Документы · обновлено в ноябре 2026</div>
+    <h1>Куда можно летать с Лессе-Пассе (Теудат Маавар) в 2026–2027 годах</h1>
+    <p>Первый израильский документ для поездок, который оформляет новый репатриант, — это не даркон, а теудат маавар, его ещё называют лессе-пассе. Рассказываем, чем он отличается от даркона, когда можно оформить даркон по правилам 2026 года и в какие страны с лессе-пассе можно въехать без визы.</p>
+
+    <div class="tldr">
+      <b>Коротко</b>
+      <ul>
+        <li>В первый год после репатриации оформляют <b>лессе-пассе на 5 лет</b>, даркон пока не выдают.</li>
+        <li><b>Даркон на 5 лет</b> можно оформить, если за предыдущий год вы провели в Израиле не меньше <b>60% времени</b> (около 219 дней). <b>На 10 лет</b> — если прожили в Израиле 3 года из последних 5.</li>
+        <li>С лессе-пассе можно без визы во <b>все страны ЕС и Шенгена</b> и ещё в ряд стран. В <b>Великобританию и Канаду</b> нужна виза.</li>
+      </ul>
+    </div>
+
+    <div class="docs-vs" aria-hidden="true">
+      <div class="dv red"><span class="he">מדינת ישראל</span><span class="en">STATE OF ISRAEL</span><span class="emb">✡</span><span class="he">תעודת מעבר</span><span class="en">TRAVEL DOCUMENT</span></div>
+      <div class="dv-arrow">через год →</div>
+      <div class="dv blue"><span class="he">מדינת ישראל</span><span class="en">STATE OF ISRAEL</span><span class="emb">✡</span><span class="he">דרכון</span><span class="en">PASSPORT</span></div>
+    </div>
+
+    <h2>Лессе-Пассе и даркон: в чём разница</h2>
+    <div class="tbl"><table>
+      <tr><th></th><th>Лессе-Пассе (теудат маавар)</th><th>Даркон</th></tr>
+      <tr><td>Что это</td><td>Проездной документ, который подтверждает израильское гражданство за границей</td><td>Полноценный заграничный паспорт Израиля</td></tr>
+      <tr><td>Цвет обложки</td><td>Красный</td><td>Синий</td></tr>
+      <tr><td>Кому выдают</td><td>Новым репатриантам, которые ещё не выполнили требования по проживанию</td><td>Гражданам, которые прожили в Израиле нужный срок</td></tr>
+      <tr><td>Срок действия</td><td>5 лет</td><td>5 или 10 лет</td></tr>
+      <tr><td>Без визы</td><td>ЕС, Шенген и ещё ряд стран (список ниже)</td><td>Заметно больше стран, в США — по ESTA, в Великобританию — по ETA, в Канаду — по eTA</td></tr>
+    </table></div>
+
+    <h2>Когда можно оформить даркон в 2026 году</h2>
+    <p>По правилам, которые МВД Израиля применяет с февраля 2025 года:</p>
+    <ul>
+      <li><b>Первый год после репатриации</b> — только лессе-пассе на 5 лет.</li>
+      <li><b>Даркон на 5 лет</b> — если за год до подачи вы физически провели в Израиле не меньше 60% времени, это примерно 219 дней.</li>
+      <li><b>Даркон на 10 лет</b> — если вы прожили в Израиле 3 года из последних 5 лет.</li>
+    </ul>
+    <p>Если ни одно условие не выполнено, продлевают лессе-пассе. Правила о проживании несколько раз менялись, поэтому перед подачей стоит проверить актуальные требования.</p>
+
+    <h2>Что такое «отказ от отказа»</h2>
+    <p>В первые 3 месяца после репатриации новый гражданин вправе отказаться от израильского гражданства. Чтобы оформить документ для поездок раньше, нужно подписать форму «отказ от отказа», то есть отказаться от этого права. После этого лессе-пассе можно заказать сразу, не дожидаясь трёх месяцев. Мы заполняем эту форму в рамках пакета «Только МВД».</p>
+
+    <h2>Куда можно без визы с лессе-пассе</h2>
+    <p>По данным на осень 2026 года без визы с израильским лессе-пассе можно въехать в эти страны. Обычно срок — до 90 дней в течение 180 дней.</p>
+    <h3 class="cl-h">Евросоюз и Шенген</h3>
+    <div class="clist"><span>Австрия</span><span>Бельгия</span><span>Болгария</span><span>Венгрия</span><span>Германия</span><span>Греция</span><span>Дания</span><span>Ирландия</span><span>Испания</span><span>Италия</span><span>Кипр</span><span>Латвия</span><span>Литва</span><span>Люксембург</span><span>Мальта</span><span>Нидерланды</span><span>Польша</span><span>Португалия</span><span>Румыния</span><span>Словакия</span><span>Словения</span><span>Финляндия</span><span>Франция</span><span>Хорватия</span><span>Чехия</span><span>Швеция</span><span>Эстония</span></div>
+    <h3 class="cl-h">Другие страны Европы (ЕАСТ)</h3>
+    <div class="clist"><span>Исландия</span><span>Лихтенштейн</span><span>Норвегия</span><span>Швейцария</span></div>
+    <h3 class="cl-h">Ещё</h3>
+    <div class="clist"><span>Россия</span><span>Украина</span><span>Сербия</span><span>Черногория</span><span>Босния и Герцеговина</span><span>Япония</span><span>Гонконг</span><span>Мексика</span></div>
+
+    <h2>Куда нужна виза</h2>
+    <div class="clist need"><span>Великобритания</span><span>Канада</span><span>США</span></div>
+    <p>Великобритания и Канада прямо указывают, что владельцам израильского проездного документа нужна виза, а владельцам даркона — нет. Для США оформляйте визу заранее: упрощённый въезд по ESTA рассчитан на владельцев обычного паспорта. Визу можно поставить прямо в лессе-пассе.</p>
+
+    <div class="callout"><b>Важно перед поездкой.</b> Список стран меняется. Перед покупкой билетов проверьте требования на сайте консульства страны или уточните у авиакомпании. Мы тоже подскажем — напишите менеджеру.</div>
+
+    <h2>Как мы помогаем</h2>
+    <p>Оформим лессе-пассе, внутренний паспорт (теудат зеут), счёт в банке, водительские права и больничную кассу от 2 рабочих дней. Заполним «отказ от отказа», а когда придёт срок — поможем оформить даркон.</p>
+    <a class="btn" href="#contact" data-lead="pkg" data-pkg="Только МВД">Оформить лессе-пассе с нами</a>
+    <p class="upd">Информация актуальна на ноябрь 2026 года.</p>
   </article>
 </div>
 
@@ -1248,10 +1336,13 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
   const app = $('app');
   function route(){
     const h = location.hash.replace('#','');
-    const art = h === 'apostil';
+    const arts=[...document.querySelectorAll('.art[data-slug]')];
+    const art = arts.some(a=>a.dataset.slug===h);
     const was = app.dataset.view;
     app.dataset.view = art ? 'article' : 'main';
-    if (art){ window.scrollTo(0,0); const a=$('apo'); setTimeout(()=>a.classList.add('on'), 300); }
+    arts.forEach(a=>a.hidden = a.dataset.slug!==h);
+    document.title = art ? arts.find(a=>a.dataset.slug===h).querySelector('h1').textContent+' | Мазаль' : 'Мазаль — новый сайт';
+    if (art){ window.scrollTo(0,0); if (h==='apostil'){ const a=$('apo'); setTimeout(()=>a.classList.add('on'), 300); } }
     else if (was === 'article' && h){ const t=document.getElementById(h); if (t) setTimeout(()=>t.scrollIntoView(), 0); }
   }
   window.addEventListener('hashchange', route); route();
