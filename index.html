@@ -425,6 +425,59 @@ body.lm-open{overflow:hidden}
 .home-stat b{display:block;font-family:var(--display);font-weight:400;font-size:34px;color:var(--ink);line-height:1}
 .home-stat span{font-size:13px;color:var(--muted)}
 
+/* ---------- BUILDER ---------- */
+.builder{background:var(--brand-pale)}
+.bld-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:start}
+@media (max-width:980px){.bld-grid{grid-template-columns:1fr;gap:24px}}
+.bld-items{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:560px){.bld-items{grid-template-columns:1fr}}
+.bi{position:relative;background:#fff;border-radius:16px;padding:18px 18px 16px;cursor:pointer;border:1.5px solid transparent;box-shadow:0 14px 30px -24px rgba(24,38,91,.5);transition:border-color .2s, transform .15s, box-shadow .2s;user-select:none}
+.bi:hover{transform:translateY(-2px);box-shadow:0 20px 36px -24px rgba(24,38,91,.55)}
+.bi:active{transform:scale(.98)}
+.bi[aria-checked="true"]{border-color:var(--c);box-shadow:0 18px 36px -22px var(--c)}
+.bi:focus-visible{outline:2px solid var(--brand-soft);outline-offset:3px}
+.bi-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.bi-ic{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--c);background:color-mix(in srgb,var(--c) 12%,#fff)}
+.bi-ic svg{width:22px;height:22px}
+.bi-box{width:24px;height:24px;border-radius:7px;border:1.5px solid var(--line);position:relative;transition:background .2s,border-color .2s}
+.bi[aria-checked="true"] .bi-box{background:var(--c);border-color:var(--c)}
+.bi[aria-checked="true"] .bi-box::after{content:"";position:absolute;left:7px;top:3px;width:6px;height:11px;border-right:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(45deg)}
+.bi-t{font-family:var(--display);font-size:21px;color:var(--ink);line-height:1.2}
+.bi-s{font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--c);margin-top:2px}
+.bi ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:5px;font-size:13.5px;line-height:1.4}
+.bi li{padding-left:14px;position:relative}
+.bi li::before{content:"";position:absolute;left:2px;top:8px;width:5px;height:5px;border-radius:50%;background:var(--c);opacity:.7}
+.bld-side{position:sticky;top:90px;display:grid;gap:14px}
+@media (max-width:980px){.bld-side{position:relative;top:0}}
+.bp-page{position:relative;border-radius:12px;padding:16px 16px 34px;background:repeating-linear-gradient(0deg,transparent 0 22px,rgba(70,120,110,.05) 22px 23px),linear-gradient(160deg,#EEF4F0,#DDE9E4);box-shadow:0 30px 60px -28px rgba(24,38,91,.45)}
+.bp-h{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:#5D7672;margin-bottom:12px}
+.bp-h .he{font-family:var(--hebrew);font-size:13px;letter-spacing:0}
+.bp-slots{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.slot{position:relative;aspect-ratio:1.35;border:1.5px dashed rgba(93,118,114,.3);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.slot-e{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(93,118,114,.45)}
+.slot.pre{border-color:transparent}
+.bst{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;line-height:1.25;color:var(--c);border:2.5px solid var(--c);background:rgba(255,255,255,.25);opacity:0;transform:scale(1.9) rotate(var(--r))}
+.bst b{font-size:12.5px;font-weight:500}
+.bst.round{width:86%;aspect-ratio:1;max-height:96%;border-radius:50%}
+.bst.oval{width:88%;height:74%;border-radius:50%}
+.bst.rect{width:88%;height:70%;border-radius:8px}
+.bst::before{content:"";position:absolute;inset:4px;border:1px dashed currentColor;border-radius:inherit;opacity:.6}
+.slot.on .slot-e{opacity:0}
+.slot.on .bst,.slot.pre .bst{opacity:.92;transform:scale(1) rotate(var(--r))}
+.slot.on .bst{animation:bthump .45s cubic-bezier(.2,1.6,.4,1)}
+@keyframes bthump{0%{opacity:0;transform:scale(1.9) rotate(var(--r))}100%{opacity:.92;transform:scale(1) rotate(var(--r))}}
+.slot.pre .bst{opacity:.55}
+.bp-pn{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:11px;color:#8FA6A1}
+.bld-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#fff;border-radius:14px;padding:12px 12px 12px 16px;box-shadow:0 14px 30px -24px rgba(24,38,91,.5)}
+@media (max-width:980px){.bld-bar{position:sticky;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:5}}
+#bld-count{font-size:14px;font-weight:600;color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.to-builder{color:var(--brand);font-weight:600;text-decoration:none}
+.lm-picked{display:flex;flex-wrap:wrap;gap:6px;margin:-6px 0 16px}
+.lm-picked span{font-size:12.5px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--brand-pale);color:var(--ink)}
+.lm-extra{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:420px){.lm-extra{grid-template-columns:1fr}}
+.lm-form input[type=month]{font:inherit;padding:13px 14px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);width:100%}
 /* ---------- REVIEWS (chat) ---------- */
 .rev{background:var(--brand-pale)}
 .rev-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
@@ -542,14 +595,14 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
   <div class="wrap">
     <a class="logo" href="#top"><img alt="" src="data:image/png;base64,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">МАЗАЛЬ</a>
     <nav class="nav" aria-label="Разделы">
-      <a href="#about">О нас</a><a href="#team">Команда</a><a href="#archive">Архивный поиск</a><a href="#proces">Процесс</a><a href="#prices">Услуги и цены</a><a href="#feedb">Отзывы</a>
+      <a href="#about">О нас</a><a href="#team">Команда</a><a href="#archive">Архивный поиск</a><a href="#proces">Процесс</a><a href="#prices">Услуги и цены</a><a href="#builder">Конструктор</a><a href="#feedb">Отзывы</a>
     </nav>
     <a class="phone" href="tel:88001013760">8-800-101-37-60</a>
     <a class="btn" href="#contact" data-lead="general">Связаться</a>
     <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
   <nav class="mnav" id="mnav" aria-label="Меню">
-    <a href="#about">О нас</a><a href="#team">Команда</a><a href="#archive">Архивный поиск</a><a href="#proces">Процесс</a><a href="#prices">Услуги и цены</a><a href="#feedb">Отзывы</a><a href="#faq">Вопросы</a><a href="#blog">Блог</a><a href="#contact" data-lead="general">Связаться · 8-800-101-37-60</a>
+    <a href="#about">О нас</a><a href="#team">Команда</a><a href="#archive">Архивный поиск</a><a href="#proces">Процесс</a><a href="#prices">Услуги и цены</a><a href="#builder">Конструктор</a><a href="#feedb">Отзывы</a><a href="#faq">Вопросы</a><a href="#blog">Блог</a><a href="#contact" data-lead="general">Связаться · 8-800-101-37-60</a>
   </nav>
 </header>
 
@@ -871,7 +924,59 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
           <div class="tk-body"><ul><li>Стратегия поиска</li><li>Поиск в любом архиве России и СНГ</li><li>Генеалогические связи</li><li>Поиск еврейских корней</li><li>Копии архивных документов</li><li>Структурирование данных</li></ul><a class="btn ghost" href="#contact" data-lead="pkg" data-pkg="Архивный поиск">Заказать</a></div></article>
       </div>
     </div>
-    <p class="price-note">Стоимость указана по курсу ЦБ РФ на дату оплаты услуг.</p>
+    <p class="price-note"><a class="to-builder" href="#builder">Нужны только отдельные услуги в Израиле? Соберите пакет сами →</a><br>Стоимость указана по курсу ЦБ РФ на дату оплаты услуг.</p>
+  </div>
+</section>
+
+<!-- BUILDER -->
+<section class="sec builder" id="builder">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Конструктор услуг</div><h2>Соберите свой пакет</h2><p>Отметьте, с чем помочь в Израиле. Каждая услуга ставит штамп в ваш паспорт, а менеджер рассчитает стоимость для вашей семьи.</p></div>
+    <div class="bld-grid">
+      <div class="bld-items">
+        <div class="bi" role="checkbox" aria-checked="false" tabindex="0" data-id="mvd" style="--c:#2F5C9A">
+          <div class="bi-top"><span class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M9 16h6"/></svg></span><span class="bi-box" aria-hidden="true"></span></div>
+          <div class="bi-t">МВД</div><div class="bi-s">Паспорта</div>
+          <ul><li>Заказ внутреннего паспорта (теудат зеут)</li><li>Заказ заграничного паспорта</li></ul>
+        </div>
+        <div class="bi" role="checkbox" aria-checked="false" tabindex="0" data-id="drive" style="--c:#B5473A">
+          <div class="bi-top"><span class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l1.5-5a2 2 0 0 1 2-1.5h7a2 2 0 0 1 2 1.5L19 16"/><rect x="4" y="16" width="16" height="3" rx="1"/><circle cx="8" cy="19.5" r="1"/><circle cx="16" cy="19.5" r="1"/></svg></span><span class="bi-box" aria-hidden="true"></span></div>
+          <div class="bi-t">Водительские права</div><div class="bi-s">Обмен прав</div>
+          <ul><li>Проверка зрения</li><li>Заполнение всех нужных документов</li></ul>
+        </div>
+        <div class="bi" role="checkbox" aria-checked="false" tabindex="0" data-id="kupa" style="--c:#3E7A57">
+          <div class="bi-top"><span class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M12 9v6M9 12h6"/></svg></span><span class="bi-box" aria-hidden="true"></span></div>
+          <div class="bi-t">Больничная касса</div><div class="bi-s">Медицина</div>
+          <ul><li>Пластиковая карта больничной кассы</li><li>Личный кабинет</li></ul>
+        </div>
+        <div class="bi" role="checkbox" aria-checked="false" tabindex="0" data-id="bank" style="--c:#7A4FA0">
+          <div class="bi-top"><span class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5"/><path d="M5 9v8M9.5 9v8M14.5 9v8M19 9v8M3 19h18"/></svg></span><span class="bi-box" aria-hidden="true"></span></div>
+          <div class="bi-t">Банк</div><div class="bi-s">Счёт и карты</div>
+          <ul><li>Дебетовая и кредитная карта</li><li>Доверенность и получение карт</li><li>Активация и код-пароль</li><li>Личный кабинет банка</li><li>Переоформление сим-карт на вас</li></ul>
+        </div>
+        <div class="bi" role="checkbox" aria-checked="false" tabindex="0" data-id="sup6" style="--c:#B8862F">
+          <div class="bi-top"><span class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></span><span class="bi-box" aria-hidden="true"></span></div>
+          <div class="bi-t">Поддержка 6 месяцев</div><div class="bi-s">Менеджер на связи</div>
+          <ul><li>Личный менеджер отвечает на вопросы</li><li>Помощь с письмами, звонками, записями</li></ul>
+        </div>
+        <div class="bi" role="checkbox" aria-checked="false" tabindex="0" data-id="sup12" style="--c:#B8862F">
+          <div class="bi-top"><span class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/><path d="M9.5 14.5l1.8 1.8 3.4-3.6"/></svg></span><span class="bi-box" aria-hidden="true"></span></div>
+          <div class="bi-t">Поддержка 12 месяцев</div><div class="bi-s">Целый год рядом</div>
+          <ul><li>Всё из поддержки на 6 месяцев</li><li>Сопровождение весь первый год</li></ul>
+        </div>
+      </div>
+      <aside class="bld-side">
+        <div class="bp-page" id="bp-page">
+          <div class="bp-h"><span>МОЙ ПАКЕТ</span><span class="he">החבילה שלי</span></div>
+          <div class="bp-slots"><div class="slot pre"><div class="bst round" style="--c:#8FA6A1;--r:-12deg"><b>Ben Gurion</b>arrival</div></div><div class="slot" data-slot="mvd"><span class="slot-e">МВД</span><div class="bst round" style="--c:#2F5C9A;--r:-8deg"><b>МВД</b><span class="bst-s">паспорта</span></div></div><div class="slot" data-slot="drive"><span class="slot-e">Права</span><div class="bst rect" style="--c:#B5473A;--r:6deg"><b>Права</b><span class="bst-s">оформлены</span></div></div><div class="slot" data-slot="kupa"><span class="slot-e">Купат холим</span><div class="bst rect" style="--c:#3E7A57;--r:-4deg"><b>Купат холим</b><span class="bst-s">карта ✓</span></div></div><div class="slot" data-slot="bank"><span class="slot-e">Банк</span><div class="bst round" style="--c:#7A4FA0;--r:9deg"><b>Банк</b><span class="bst-s">счёт открыт</span></div></div><div class="slot" data-slot="sup"><span class="slot-e">Поддержка</span><div class="bst oval" style="--c:#B8862F;--r:-6deg"><b>Поддержка</b><span class="bst-s"></span></div></div></div>
+          <div class="bp-pn">— 1 —</div>
+        </div>
+        <div class="bld-bar">
+          <span id="bld-count">Пока ничего не выбрано</span>
+          <button class="btn" type="button" id="bld-send" disabled>Отправить менеджеру</button>
+        </div>
+      </aside>
+    </div>
   </div>
 </section>
 
@@ -1010,9 +1115,14 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
     <div class="lm-tag" id="lm-tag">Виза уже есть</div>
     <h3 id="lm-title">Оформим всё в Израиле от 2 рабочих дней</h3>
     <p id="lm-sub">Оставьте контакты, менеджер свяжется с вами и расскажет, с чего начать.</p>
+    <div class="lm-picked" id="lm-picked" hidden></div>
     <form class="lm-form" id="lm-form" novalidate>
       <label for="lm-name">Имя<input id="lm-name" type="text" autocomplete="name" required></label>
       <label for="lm-phone">Телефон<input id="lm-phone" type="tel" autocomplete="tel" placeholder="+7 ..." required></label>
+      <div class="lm-extra" id="lm-extra" hidden>
+        <label for="lm-fam">Сколько вас<select id="lm-fam"><option>1 человек</option><option>2 человека</option><option>3 человека</option><option selected>4 человека</option><option>5 человек</option><option>6 и больше</option></select></label>
+        <label for="lm-date">Примерная дата прилёта<input id="lm-date" type="month"></label>
+      </div>
       <label for="lm-msg">Где удобнее общаться<select id="lm-msg"><option>Telegram</option><option>WhatsApp</option><option>Звонок</option></select></label>
       <label class="lm-chk" for="lm-ok"><input id="lm-ok" type="checkbox" checked> Я согласен с политикой конфиденциальности</label>
       <button class="btn" type="submit">Связаться с менеджером</button>
@@ -1171,6 +1281,11 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
     if (kind==='pkg' && from && from.dataset.pkg){ const p=from.dataset.pkg; d={tag:'Пакет «'+p+'»',title:'Оставьте заявку на пакет «'+p+'»',sub:'Менеджер свяжется с вами, уточнит детали и рассчитает стоимость для вашей семьи.'}; }
     $('lm-tag').textContent=d.tag; $('lm-title').textContent=d.title; $('lm-sub').textContent=d.sub;
     $('lm-done').hidden=true; lm.dataset.kind=kind;
+    const isB=kind==='builder', picked=$('lm-picked');
+    $('lm-extra').hidden=!isB; picked.hidden=!isB;
+    if (isB){ d={tag:'Мой пакет',title:'Отправим вашу подборку менеджеру',sub:'Менеджер свяжется с вами, уточнит детали и рассчитает стоимость для вашей семьи.'};
+      $('lm-tag').textContent=d.tag; $('lm-title').textContent=d.title; $('lm-sub').textContent=d.sub;
+      picked.innerHTML=(window.__bldPicked||[]).map(n=>'<span>'+n+'</span>').join(''); }
     lm.hidden=false; document.body.classList.add('lm-open'); lmFrom=from||null;
     setTimeout(()=>$('lm-name').focus(),50);
   }
@@ -1207,6 +1322,36 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
     addEventListener('scroll',onScroll,{passive:true});
     addEventListener('resize',()=>{ W=fl.clientWidth; H=fl.clientHeight; onScroll(); });
     onScroll();
+  })();
+
+  /* ---------- service builder ---------- */
+  (function(){
+    const tiles=[...document.querySelectorAll('.bi')], cnt=$('bld-count'), send=$('bld-send');
+    const NAMES={mvd:'МВД',drive:'Водительские права',kupa:'Больничная касса',bank:'Банк',sup6:'Поддержка 6 месяцев',sup12:'Поддержка 12 месяцев'};
+    function word(n){ const m10=n%10,m100=n%100; return (m10===1&&m100!==11)?'услуга':(m10>=2&&m10<=4&&(m100<12||m100>14))?'услуги':'услуг'; }
+    function sync(){
+      const on=tiles.filter(t=>t.getAttribute('aria-checked')==='true').map(t=>t.dataset.id);
+      ['mvd','drive','kupa','bank'].forEach(id=>document.querySelector('.slot[data-slot="'+id+'"]').classList.toggle('on',on.includes(id)));
+      const sup=document.querySelector('.slot[data-slot="sup"]'), sid=on.find(x=>x.startsWith('sup'));
+      sup.classList.toggle('on',!!sid); sup.querySelector('.bst-s').textContent=sid==='sup12'?'12 месяцев':sid==='sup6'?'6 месяцев':'';
+      window.__bldPicked=on.map(id=>NAMES[id]);
+      cnt.textContent=on.length?('Выбрано: '+on.length+' '+word(on.length)):'Пока ничего не выбрано';
+      send.disabled=!on.length;
+    }
+    function toggle(t){
+      const was=t.getAttribute('aria-checked')==='true';
+      if (!was && t.dataset.id.startsWith('sup')) tiles.forEach(x=>{ if (x!==t && x.dataset.id.startsWith('sup')) x.setAttribute('aria-checked','false'); });
+      t.setAttribute('aria-checked', String(!was));
+      const sl=document.querySelector('.slot[data-slot="'+(t.dataset.id.startsWith('sup')?'sup':t.dataset.id)+'"]');
+      if (sl && !was){ sl.classList.remove('on'); void sl.offsetWidth; }
+      sync();
+    }
+    tiles.forEach(t=>{
+      t.addEventListener('click',()=>toggle(t));
+      t.addEventListener('keydown',e=>{ if (e.key===' '||e.key==='Enter'){ e.preventDefault(); toggle(t); } });
+    });
+    send.addEventListener('click',()=>{ if (!send.disabled) openLead('builder',send); });
+    sync();
   })();
 
   /* ---------- counters ---------- */
