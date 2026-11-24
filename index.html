@@ -180,9 +180,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
   .vst{font-size:8px;padding:5px 7px;border-width:2px}
   .vst b{font-size:10px}
   .vst.round{width:74px;height:74px}
-  .v1{top:30px;left:4%}.v2{top:18px;left:38%;right:auto}.v3{top:32px;left:auto;right:3%;bottom:auto}
+  #proces .vst{width:29%;max-width:29%;white-space:normal;line-height:1.15}
+  #proces .vst.round{width:66px;height:66px;max-width:none}
+  #proces .v1{top:34px;left:3%}#proces .v2{top:26px;left:calc(50% - 33px);right:auto}#proces .v3{top:34px;left:auto;right:3%;bottom:auto}
   /* builder: the passport becomes a mini stamp strip inside the sticky bar */
-  #builder .bld-side{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));top:auto;z-index:6;gap:0;align-self:end}
+  #builder .bld-side{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));top:auto;z-index:6;gap:0;align-self:stretch;width:100%}
   #builder .bld-bar{position:static;box-shadow:0 -8px 30px -12px rgba(24,38,91,.35)}
   #builder .bld-grid{display:flex;flex-direction:column}
   .bp-page{display:none}
