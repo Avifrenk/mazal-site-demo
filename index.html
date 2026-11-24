@@ -521,7 +521,7 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
       </div>
       <div class="paths">
         <button class="path" type="button" data-lead="visa"><b>Виза уже есть →</b><span>Оформим всё в Израиле от 2 рабочих дней</span></button>
-        <button class="path alt" type="button" data-lead="novisa"><b>Визы ещё нет →</b><span>Проверим право и подготовим к консулу</span></button>
+        <button class="path alt" type="button" data-lead="novisa"><b>Визы ещё нет →</b><span>Проверим право на репатриацию и подготовим к консулу</span></button>
       </div>
       <div class="trust">1000+ репатриантов · иврит и русский · менеджер 24/7</div>
     </div>
@@ -706,8 +706,8 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
       </div>
       <div class="pc" tabindex="0" role="button" aria-label="Визы ещё нет: подробнее">
         <div class="pc-in">
-          <div class="pc-f"><div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21V11M12 11c-3 0-6-2-6-6 3 0 6 2 6 6zM12 13c3 0 6-2 6-6-3 0-6 2-6 6z"/><path d="M8 21h8"/></svg></div><div class="pc-k">Сценарий 2</div><h3>Визы ещё нет</h3><div class="tag">Проверим право, соберём документы, подготовим к консулу</div><div class="turn">Что входит →</div></div>
-          <div class="pc-b"><ul class="pc-list"><li>Проверка права и документов</li><li>Архивный поиск, если документов не хватает</li><li>Подготовка к собеседованию с консулом</li><li>Запись в консульство и подача в Сохнут</li><li>Затем всё из сценария 1 уже в Израиле</li></ul><div class="pc-price">от $3 000</div><a class="more" href="#quiz">Проверить моё право →</a></div>
+          <div class="pc-f"><div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21V11M12 11c-3 0-6-2-6-6 3 0 6 2 6 6zM12 13c3 0 6-2 6-6-3 0-6 2-6 6z"/><path d="M8 21h8"/></svg></div><div class="pc-k">Сценарий 2</div><h3>Визы ещё нет</h3><div class="tag">Проверим право на репатриацию, соберём документы, подготовим к консулу</div><div class="turn">Что входит →</div></div>
+          <div class="pc-b"><ul class="pc-list"><li>Проверка права на репатриацию и документов</li><li>Архивный поиск, если документов не хватает</li><li>Подготовка к собеседованию с консулом</li><li>Запись в консульство и подача в Сохнут</li><li>Затем всё из сценария 1 уже в Израиле</li></ul><div class="pc-price">от $3 000</div><a class="more" href="#quiz">Проверить моё право на репатриацию →</a></div>
         </div>
       </div>
     </div>
@@ -1101,7 +1101,7 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
   const lm=$('lead-modal');
   const LEADS={
     visa:{tag:'Виза уже есть',title:'Оформим всё в Израиле от 2 рабочих дней',sub:'Оставьте контакты, менеджер свяжется с вами, подберёт пакет и согласует даты.'},
-    novisa:{tag:'Визы ещё нет',title:'Проверим ваше право и подготовим к консулу',sub:'Оставьте контакты, менеджер свяжется с вами и бесплатно разберёт ваш случай.'}
+    novisa:{tag:'Визы ещё нет',title:'Проверим ваше право на репатриацию и подготовим к консулу',sub:'Оставьте контакты, менеджер свяжется с вами и бесплатно разберёт ваш случай.'}
   };
   let lmFrom=null;
   function openLead(kind, from){
@@ -1225,8 +1225,8 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
     const yes=ans[0]==='y';
     const docs={full:'Документы на руках, значит можно сразу готовиться к консульской проверке.',part:'Недостающие документы найдём через архивный поиск.',none:'Начнём с архивного поиска: находили документы даже там, где клиенты не ждали.'}[ans[1]];
     stage.innerHTML = yes
-      ? '<span class="verdict yes">Право, скорее всего, есть</span><h3>Похоже, вы можете репатриироваться</h3><p>По Закону о возвращении право есть у детей и внуков евреев и у их супругов. '+docs+'</p><a class="btn" href="#contact">Обсудить мой случай бесплатно</a> <button class="linkbtn" type="button" id="qagain">Пройти заново</button>'
-      : '<span class="verdict maybe">Нужно разобраться</span><h3>Ваш случай стоит проверить со специалистом</h3><p>По Закону о возвращении право есть у детей и внуков евреев и у их супругов. Если родство дальше или вы не уверены, поможем выяснить через архивы. '+docs+'</p><a class="btn" href="#contact">Получить консультацию</a> <button class="linkbtn" type="button" id="qagain">Пройти заново</button>';
+      ? '<span class="verdict yes">Право, скорее всего, есть</span><h3>Похоже, вы можете репатриироваться</h3><p>По Закону о возвращении право на репатриацию есть у детей и внуков евреев и у их супругов. '+docs+'</p><a class="btn" href="#contact">Обсудить мой случай бесплатно</a> <button class="linkbtn" type="button" id="qagain">Пройти заново</button>'
+      : '<span class="verdict maybe">Нужно разобраться</span><h3>Ваш случай стоит проверить со специалистом</h3><p>По Закону о возвращении право на репатриацию есть у детей и внуков евреев и у их супругов. Если родство дальше или вы не уверены, поможем выяснить через архивы. '+docs+'</p><a class="btn" href="#contact">Получить консультацию</a> <button class="linkbtn" type="button" id="qagain">Пройти заново</button>';
     $('qagain').addEventListener('click',()=>showQ(0));
   }
   showQ(0);
