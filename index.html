@@ -1285,7 +1285,6 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
   if (!reduce && hasIO){
     box.classList.add('anim'); onSee(box, grow, .35);
     new IntersectionObserver(es=>{ treeVisible=es[0].isIntersecting; },{threshold:.1}).observe(box);
-    fallTimer=setInterval(dropLeaf,900);
   }
   $('replay').addEventListener('click', ()=>{ if (!reduce) grow(); });
 
