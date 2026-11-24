@@ -362,6 +362,26 @@ body.lm-open{overflow:hidden}
 .w2{animation:wave 9s linear infinite reverse;opacity:.7}
 .w3{animation:wave 20s linear infinite;opacity:.5}
 @keyframes wave{to{transform:translateX(-50%)}}
+.swimmer{position:absolute;left:0;bottom:72px;width:76px;height:48px;will-change:transform;z-index:1}
+.sea svg.w2,.sea svg.w1{z-index:2}
+.sw-flip{width:100%;height:100%;transition:transform .35s ease}
+.swimmer.left .sw-flip{transform:scaleX(-1)}
+.sw-bob{width:100%;height:100%;animation:swbob 2.4s ease-in-out infinite}
+@keyframes swbob{50%{transform:translateY(5px) rotate(-2deg)}}
+.sw-bob svg{position:static;width:100%;height:100%}
+.sw-arm{transform-box:view-box;transform-origin:0 0;transform:translate(30px,22px)}
+.sw-arm.a1{transform:translate(30px,22px) rotate(40deg)}
+.sw-arm.a2{transform:translate(30px,22px) rotate(220deg)}
+.swimmer.go .sw-arm.a1{animation:stroke1 .9s linear infinite}
+.swimmer.go .sw-arm.a2{animation:stroke2 .9s linear infinite}
+@keyframes stroke1{from{transform:translate(30px,22px) rotate(0deg)}to{transform:translate(30px,22px) rotate(360deg)}}
+@keyframes stroke2{from{transform:translate(30px,22px) rotate(180deg)}to{transform:translate(30px,22px) rotate(540deg)}}
+.sw-splash{fill:#fff;opacity:0}
+.swimmer.go .sw-splash{animation:splash .45s ease-out infinite}
+@keyframes splash{0%{opacity:.9;transform:translateY(0)}100%{opacity:0;transform:translateY(-6px)}}
+.sw-splash{transform-box:fill-box}
+@media (prefers-reduced-motion: reduce){.sw-bob,.swimmer.go .sw-arm,.swimmer.go .sw-splash{animation:none}}
+
 .sun{position:absolute;right:12%;bottom:90px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,#FFD98A,#F2A65A);box-shadow:0 0 80px 20px rgba(242,166,90,.35)}
 
 /* ---------- PRICES (tickets) ---------- */
@@ -886,6 +906,18 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
   <div class="sea" aria-hidden="true">
     <div class="sun"></div>
     <svg class="w3" viewBox="0 0 2400 170" preserveAspectRatio="none"><path d="M0 70 Q150 40 300 70 T600 70 T900 70 T1200 70 T1500 70 T1800 70 T2100 70 T2400 70 V170 H0Z" fill="#1F5FB0"/></svg>
+    <div class="swimmer" id="swimmer"><div class="sw-flip"><div class="sw-bob">
+      <svg viewBox="0 0 64 40" overflow="visible">
+        <ellipse cx="24" cy="27" rx="16" ry="5" fill="#E9B98F"/>
+        <g class="sw-arm a1"><path d="M0 0 L-15 0" stroke="#E9B98F" stroke-width="4.5" stroke-linecap="round"/><circle cx="-16" cy="0" r="3" fill="#E9B98F"/></g>
+        <g class="sw-arm a2"><path d="M0 0 L-15 0" stroke="#E9B98F" stroke-width="4.5" stroke-linecap="round"/><circle cx="-16" cy="0" r="3" fill="#E9B98F"/></g>
+        <circle cx="44" cy="22" r="8" fill="#F2C9A0"/>
+        <path d="M36.2 21a8 8 0 0 1 15.6 0z" fill="#fff"/>
+        <path d="M36.6 18.6h14.8" stroke="#0038B8" stroke-width="1.6"/>
+        <circle cx="48" cy="23.5" r="1.1" fill="#1D2B3A"/>
+        <g class="sw-splash"><circle cx="58" cy="26" r="2.2"/><circle cx="62" cy="22" r="1.5"/><circle cx="55" cy="21" r="1.2"/><circle cx="8" cy="27" r="1.8"/><circle cx="4" cy="24" r="1.2"/></g>
+      </svg>
+    </div></div></div>
     <svg class="w2" viewBox="0 0 2400 170" preserveAspectRatio="none"><path d="M0 95 Q100 70 200 95 T400 95 T600 95 T800 95 T1000 95 T1200 95 T1400 95 T1600 95 T1800 95 T2000 95 T2200 95 T2400 95 V170 H0Z" fill="#2E8FD6"/></svg>
     <svg class="w1" viewBox="0 0 2400 170" preserveAspectRatio="none"><path d="M0 125 Q150 105 300 125 T600 125 T900 125 T1200 125 T1500 125 T1800 125 T2100 125 T2400 125 V170 H0Z" fill="#F1DDB0"/></svg>
   </div>
@@ -1352,6 +1384,33 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
     });
     send.addEventListener('click',()=>{ if (!send.disabled) openLead('builder',send); });
     sync();
+  })();
+
+  /* ---------- swimmer in the advantages sea ---------- */
+  (function(){
+    const sw=$('swimmer'), sec=$('plusus'); if (!sw||!sec) return;
+    let cur=0, target=0, lastY=scrollY, running=false, idle;
+    function calc(){
+      const r=sec.getBoundingClientRect(), p=(innerHeight-r.top)/(innerHeight+r.height);
+      const k=Math.min(1,Math.max(0,p)), W=sec.clientWidth-sw.offsetWidth-16;
+      target=8+k*W;
+    }
+    function frame(){
+      cur+=(target-cur)*(reduce?1:.1);
+      if (Math.abs(target-cur)<.3) cur=target;
+      sw.style.transform='translateX('+cur.toFixed(1)+'px)';
+      if (cur!==target) requestAnimationFrame(frame); else running=false;
+    }
+    function onScroll(){
+      const y=scrollY, dy=y-lastY; lastY=y;
+      const r=sec.getBoundingClientRect(); if (r.bottom<0||r.top>innerHeight) return;
+      if (dy) sw.classList.toggle('left', dy<0);
+      sw.classList.add('go'); clearTimeout(idle); idle=setTimeout(()=>sw.classList.remove('go'),260);
+      calc(); if (!running){ running=true; requestAnimationFrame(frame); }
+    }
+    addEventListener('scroll',onScroll,{passive:true});
+    addEventListener('resize',()=>{ calc(); cur=target; frame(); });
+    calc(); cur=target; sw.style.transform='translateX('+cur+'px)';
   })();
 
   /* ---------- counters ---------- */
