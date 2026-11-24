@@ -435,8 +435,10 @@ body.lm-open{overflow:hidden}
 @media (max-width:600px){.opts{grid-template-columns:1fr}}
 .opts button{text-align:left;font:500 15px var(--body);color:#fff;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:16px 18px;cursor:pointer;transition:background .2s,border-color .2s}
 .opts button:hover{background:rgba(95,162,255,.14);border-color:var(--brand-soft)}
-.qres h3{color:#fff;font-size:28px;margin-bottom:10px}
-.qres p{color:var(--on-navy-muted);margin:0 0 20px;max-width:56ch}
+#qstage h3{color:#fff;font-size:28px;margin-bottom:10px}
+#qstage p:not(.qq){color:var(--on-navy-muted);margin:0 0 20px;max-width:56ch}
+#qstage .linkbtn{color:var(--brand-soft)}
+#qstage .btn{margin-right:6px}
 .verdict{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:6px;border:2px solid currentColor;transform:rotate(-3deg);margin-bottom:16px}
 .verdict.yes{color:#7FD6A0}.verdict.maybe{color:#FFC86B}
 
@@ -1115,6 +1117,8 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
   const lm=$('lead-modal');
   const LEADS={
     visa:{tag:'Виза уже есть',title:'Оформим всё в Израиле от 2 рабочих дней',sub:'Оставьте контакты, менеджер свяжется с вами, подберёт пакет и согласует даты.'},
+    quizyes:{tag:'Право, скорее всего, есть',title:'Обсудим ваш случай бесплатно',sub:'Оставьте контакты, менеджер свяжется с вами, проверит документы и расскажет, с чего начать.'},
+    quizmaybe:{tag:'Нужно разобраться',title:'Разберём ваш случай бесплатно',sub:'Оставьте контакты, менеджер свяжется с вами и подскажет, как подтвердить право на репатриацию.'},
     novisa:{tag:'Визы ещё нет',title:'Проверим ваше право на репатриацию и подготовим к консулу',sub:'Оставьте контакты, менеджер свяжется с вами и бесплатно разберёт ваш случай.'}
   };
   let lmFrom=null;
@@ -1126,7 +1130,7 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
     setTimeout(()=>$('lm-name').focus(),50);
   }
   function closeLead(){ lm.hidden=true; document.body.classList.remove('lm-open'); if (lmFrom) lmFrom.focus(); }
-  document.querySelectorAll('[data-lead]').forEach(b=>b.addEventListener('click',()=>openLead(b.dataset.lead,b)));
+  document.addEventListener('click',e=>{ const b=e.target.closest('[data-lead]'); if (b) openLead(b.dataset.lead,b); });
   lm.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeLead));
   document.addEventListener('keydown',e=>{ if (e.key==='Escape' && !lm.hidden) closeLead(); });
   $('lm-form').addEventListener('submit',e=>{ e.preventDefault(); $('lm-done').hidden=false; });
@@ -1266,10 +1270,10 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
   function showRes(){
     prog.forEach(p=>p.classList.add('on'));
     const yes=ans[0]==='y';
-    const docs={full:'Документы на руках, значит можно сразу готовиться к консульской проверке.',part:'Недостающие документы найдём через архивный поиск.',none:'Начнём с архивного поиска: находили документы даже там, где клиенты не ждали.'}[ans[1]];
+    const docs={full:'Документы уже на руках, значит можно сразу готовиться к консульской проверке.',part:'Недостающие документы найдём через архивный поиск.',none:'Начнём с архивного поиска: мы находили документы даже там, где клиенты их не ждали.'}[ans[1]];
     stage.innerHTML = yes
-      ? '<span class="verdict yes">Право, скорее всего, есть</span><h3>Похоже, вы можете репатриироваться</h3><p>По Закону о возвращении право на репатриацию есть у детей и внуков евреев и у их супругов. '+docs+'</p><a class="btn" href="#contact">Обсудить мой случай бесплатно</a> <button class="linkbtn" type="button" id="qagain">Пройти заново</button>'
-      : '<span class="verdict maybe">Нужно разобраться</span><h3>Ваш случай стоит проверить со специалистом</h3><p>По Закону о возвращении право на репатриацию есть у детей и внуков евреев и у их супругов. Если родство дальше или вы не уверены, поможем выяснить через архивы. '+docs+'</p><a class="btn" href="#contact">Получить консультацию</a> <button class="linkbtn" type="button" id="qagain">Пройти заново</button>';
+      ? '<span class="verdict yes">Право, скорее всего, есть</span><h3>Похоже, вы можете репатриироваться</h3><p>По Закону о возвращении право на репатриацию есть у детей и внуков евреев и у их супругов. '+docs+'</p><button class="btn" type="button" data-lead="quizyes">Обсудить мой случай бесплатно</button> <button class="linkbtn" type="button" id="qagain">Пройти заново</button>'
+      : '<span class="verdict maybe">Нужно разобраться</span><h3>Ваш случай стоит проверить со специалистом</h3><p>По Закону о возвращении право на репатриацию есть у детей и внуков евреев и у их супругов. Если родство дальше или вы не уверены, поможем выяснить через документы и архивы.</p><button class="btn" type="button" data-lead="quizmaybe">Разобрать мой случай бесплатно</button> <button class="linkbtn" type="button" id="qagain">Пройти заново</button>';
     $('qagain').addEventListener('click',()=>showQ(0));
   }
   showQ(0);
