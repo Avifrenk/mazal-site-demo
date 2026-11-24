@@ -655,6 +655,15 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
 /* ---------- ARTICLE ---------- */
 #article{background:var(--paper)}
 .art[hidden]{display:none!important}
+.toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:0 0 24px}
+.toc b{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.toc ol{margin:0;padding-left:20px;columns:2;column-gap:28px}
+@media (max-width:600px){.toc ol{columns:1}}
+.toc li{font-size:15px;margin:4px 0;break-inside:avoid}
+.toc a{color:var(--brand);text-decoration:none}
+.art h2[id]{scroll-margin-top:80px}
+.art-faq{margin-top:8px}
+
 .art h3.cl-h{font-size:18px;margin:22px 0 10px}
 .tldr{background:var(--navy-2);color:var(--on-navy);border-radius:16px;padding:20px 24px;margin:26px 0}
 .tldr b{color:#fff}
@@ -1259,7 +1268,7 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
     <p>В среднем апостиль ставят за пять рабочих дней. Срока давности у него нет: документ действует, пока не истечёт его собственный срок.</p>
     <div class="callout"><b>Мы знаем, как быстро и без проблем апостилировать ваши документы.</b><br><a class="btn" href="#contact" data-lead="apostil" style="margin-top:14px">Получить консультацию</a></div>
   </article>
-  <article class="wrap art" data-slug="lessepasse" hidden>
+  <article class="wrap art" data-slug="lessepasse" data-title="Куда можно летать с Лессе-Пассе в 2026–2027: список стран | Мазаль" data-desc="Лессе-пассе (теудат маавар) или даркон: чем отличаются, когда оформить даркон по правилам 2026 года и список стран без визы для лессе-пассе. Обновлено в ноябре 2026." hidden>
     <a class="back" href="#blog">← Ко всем статьям</a>
     <figure class="art-cover"><svg class="cover-svg" viewBox="0 0 800 360" role="img" aria-label="Лессе-пассе и даркон на фоне маршрутов перелётов">
   <defs><linearGradient id="cla" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#10194A"/><stop offset="1" stop-color="#2A3F86"/></linearGradient>
@@ -1289,13 +1298,14 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
       </ul>
     </div>
 
+    <nav class="toc" aria-label="Содержание"><b>Содержание</b><ol><li><a href="#raznica" data-toc>Лессе-Пассе и даркон: в чём разница</a></li><li><a href="#kogda-darkon" data-toc>Когда можно оформить даркон в 2026 году</a></li><li><a href="#otkaz" data-toc>Что такое «отказ от отказа»</a></li><li><a href="#bez-vizy" data-toc>Куда можно без визы с лессе-пассе</a></li><li><a href="#viza" data-toc>Куда нужна виза</a></li><li><a href="#faq-lp" data-toc>Частые вопросы</a></li></ol></nav>
     <div class="docs-vs" aria-hidden="true">
       <div class="dv red"><span class="he">מדינת ישראל</span><span class="en">STATE OF ISRAEL</span><span class="emb">✡</span><span class="he">תעודת מעבר</span><span class="en">TRAVEL DOCUMENT</span></div>
       <div class="dv-arrow">через год →</div>
       <div class="dv blue"><span class="he">מדינת ישראל</span><span class="en">STATE OF ISRAEL</span><span class="emb">✡</span><span class="he">דרכון</span><span class="en">PASSPORT</span></div>
     </div>
 
-    <h2>Лессе-Пассе и даркон: в чём разница</h2>
+    <h2 id="raznica">Лессе-Пассе и даркон: в чём разница</h2>
     <div class="tbl"><table>
       <tr><th></th><th>Лессе-Пассе (теудат маавар)</th><th>Даркон</th></tr>
       <tr><td>Что это</td><td>Проездной документ, который подтверждает израильское гражданство за границей</td><td>Полноценный заграничный паспорт Израиля</td></tr>
@@ -1305,7 +1315,7 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
       <tr><td>Без визы</td><td>ЕС, Шенген и ещё ряд стран (список ниже)</td><td>Заметно больше стран, в Великобританию — по ETA, в Канаду — по eTA. В США — только с дарконом на 10 лет и по электронному разрешению ESTA</td></tr>
     </table></div>
 
-    <h2>Когда можно оформить даркон в 2026 году</h2>
+    <h2 id="kogda-darkon">Когда можно оформить даркон в 2026 году</h2>
     <p>По правилам, которые МВД Израиля применяет с февраля 2025 года:</p>
     <ul>
       <li><b>Первый год после репатриации</b> — только лессе-пассе на 5 лет.</li>
@@ -1314,10 +1324,10 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
     </ul>
     <p>Если ни одно условие не выполнено, продлевают лессе-пассе. Правила о проживании несколько раз менялись, поэтому перед подачей стоит проверить актуальные требования.</p>
 
-    <h2>Что такое «отказ от отказа»</h2>
-    <p>В первые 3 месяца после репатриации новый гражданин вправе отказаться от израильского гражданства. Чтобы оформить документ для поездок раньше, нужно подписать форму «отказ от отказа», то есть отказаться от этого права. После этого лессе-пассе можно заказать сразу, не дожидаясь трёх месяцев. Мы заполняем эту форму в рамках пакета «Только МВД».</p>
+    <h2 id="otkaz">Что такое «отказ от отказа»</h2>
+    <p>В первые 3 месяца после репатриации новый гражданин вправе отказаться от израильского гражданства. Чтобы оформить документ для поездок раньше, нужно подписать форму «отказ от отказа», то есть отказаться от этого права. После этого лессе-пассе можно заказать сразу, не дожидаясь трёх месяцев. Мы заполняем эту форму в рамках пакета <a href="#prices">«Только МВД»</a>.</p>
 
-    <h2>Куда можно без визы с лессе-пассе</h2>
+    <h2 id="bez-vizy">Куда можно без визы с лессе-пассе</h2>
     <p>С израильским лессе-пассе без визы можно въехать примерно в 60 стран. Обычно срок — до 90 дней в течение 180 дней, где условия другие — указали рядом.</p>
     <h3 class="cl-h">Евросоюз и Шенген</h3>
     <div class="clist"><span>Австрия</span><span>Бельгия</span><span>Болгария</span><span>Венгрия</span><span>Германия</span><span>Греция</span><span>Дания</span><span>Ирландия</span><span>Испания</span><span>Италия</span><span>Кипр</span><span>Латвия</span><span>Литва</span><span>Люксембург</span><span>Мальта</span><span>Нидерланды</span><span>Польша</span><span>Португалия</span><span>Румыния</span><span>Словакия</span><span>Словения</span><span>Финляндия</span><span>Франция</span><span>Хорватия</span><span>Чехия</span><span>Швеция</span><span>Эстония</span></div>
@@ -1328,16 +1338,19 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
     <h3 class="cl-h">Другие страны мира</h3>
     <div class="clist"><span>Грузия <small>до 360 дней</small></span><span>Молдова</span><span>Монако</span><span>Сан-Марино</span><span>Аргентина</span><span>Бразилия</span><span>Колумбия</span><span>Коста-Рика</span><span>Парагвай</span><span>Эквадор</span><span>Доминиканская Республика <small>нужна электронная виза</small></span><span>Багамы</span><span>Бермуды</span><span>Каймановы острова</span><span>Карибские Нидерланды</span><span>Гренада</span><span>Сент-Люсия</span><span>Сент-Китс и Невис</span><span>Сингапур <small>до 30 дней, SG Arrival Card</small></span><span>Филиппины <small>до 4 месяцев</small></span><span>Фиджи <small>до 4 месяцев</small></span><span>Новая Зеландия</span><span>Науру</span><span>Сейшельские острова</span><span>Фарерские острова <small>нужна электронная виза</small></span></div>
 
-    <h2>Куда нужна виза</h2>
+    <h2 id="viza">Куда нужна виза</h2>
     <div class="clist need"><span>Великобритания</span><span>Канада</span><span>США</span></div>
     <p>Великобритания и Канада прямо указывают, что владельцам израильского проездного документа нужна виза, а владельцам даркона — нет. В США без обычной визы можно только с дарконом на 10 лет: для него оформляют электронное разрешение ESTA. С лессе-пассе и с дарконом на 5 лет нужна обычная виза США: её вклеивают прямо в документ, процедура стандартная.</p>
 
     <div class="callout"><b>Важно перед поездкой.</b> Список стран и условия въезда могут меняться в любой момент. Информация в статье справочная, и компания «Мазаль» не несёт ответственности за изменения правил въезда других стран. Перед покупкой билетов проверьте требования на сайте консульства страны или уточните у авиакомпании.</div>
 
+    <h2 id="faq-lp">Частые вопросы</h2><div class="faq-list art-faq"><details><summary>Сколько действует лессе-пассе?</summary><p>Лессе-пассе (теудат маавар) выдают на 5 лет.</p></details><details><summary>Можно ли с лессе-пассе полететь в Грузию?</summary><p>Да, Грузия пускает владельцев израильского лессе-пассе без визы, до 360 дней. Перед поездкой проверьте актуальные правила.</p></details><details><summary>Можно ли поставить визу США в лессе-пассе?</summary><p>Да. С лессе-пассе и с дарконом на 5 лет нужна обычная виза США, её вклеивают прямо в документ. Без визы, по ESTA, можно только с дарконом на 10 лет.</p></details><details><summary>Когда я смогу оформить даркон?</summary><p>Даркон на 5 лет — если за предыдущий год вы провели в Израиле не меньше 60% времени, около 219 дней. Даркон на 10 лет — если прожили в Израиле 3 года из последних 5.</p></details></div>
+
     <h2>Как мы помогаем</h2>
     <p>Оформим лессе-пассе, внутренний паспорт (теудат зеут), счёт в банке, водительские права и больничную кассу от 2 рабочих дней. Заполним «отказ от отказа», а когда придёт срок — поможем оформить даркон.</p>
     <a class="btn" href="#contact" data-lead="pkg" data-pkg="Только МВД">Оформить лессе-пассе с нами</a>
-    <p class="upd">Информация актуальна на ноябрь 2026 года.</p>
+    <p class="upd">Обновлено 24 ноября 2026 года. Информация актуальна на эту дату.</p>
+    <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "Куда можно летать с Лессе-Пассе (Теудат Маавар) в 2026–2027 годах", "description": "Лессе-пассе (теудат маавар) или даркон: чем отличаются, когда оформить даркон по правилам 2026 года и список стран без визы для лессе-пассе. Обновлено в ноябре 2026.", "inLanguage": "ru", "dateModified": "2026-11-24", "datePublished": "2023-10-01", "author": {"@type": "Organization", "name": "Мазаль"}, "publisher": {"@type": "Organization", "name": "Мазаль", "url": "https://www.mazal.team/"}, "mainEntityOfPage": "https://www.mazal.team/lessepasse"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько действует лессе-пассе?", "acceptedAnswer": {"@type": "Answer", "text": "Лессе-пассе (теудат маавар) выдают на 5 лет."}}, {"@type": "Question", "name": "Можно ли с лессе-пассе полететь в Грузию?", "acceptedAnswer": {"@type": "Answer", "text": "Да, Грузия пускает владельцев израильского лессе-пассе без визы, до 360 дней. Перед поездкой проверьте актуальные правила."}}, {"@type": "Question", "name": "Можно ли поставить визу США в лессе-пассе?", "acceptedAnswer": {"@type": "Answer", "text": "Да. С лессе-пассе и с дарконом на 5 лет нужна обычная виза США, её вклеивают прямо в документ. Без визы, по ESTA, можно только с дарконом на 10 лет."}}, {"@type": "Question", "name": "Когда я смогу оформить даркон?", "acceptedAnswer": {"@type": "Answer", "text": "Даркон на 5 лет — если за предыдущий год вы провели в Израиле не меньше 60% времени, около 219 дней. Даркон на 10 лет — если прожили в Израиле 3 года из последних 5."}}]}]</script>
   </article>
 </div>
 
@@ -1408,10 +1421,14 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
     const was = app.dataset.view;
     app.dataset.view = art ? 'article' : 'main';
     arts.forEach(a=>a.hidden = a.dataset.slug!==h);
-    document.title = art ? arts.find(a=>a.dataset.slug===h).querySelector('h1').textContent+' | Мазаль' : 'Мазаль — новый сайт';
+    const cur = art ? arts.find(a=>a.dataset.slug===h) : null;
+    document.title = cur ? (cur.dataset.title || cur.querySelector('h1').textContent+' | Мазаль') : 'Мазаль — новый сайт';
+    let md=document.querySelector('meta[name="description"]'); if (!md){ md=document.createElement('meta'); md.name='description'; document.head.appendChild(md); }
+    md.content = cur && cur.dataset.desc ? cur.dataset.desc : 'Репатриация в Израиль под ключ от 2 дней: документы, консул, МВД, архивный поиск.';
     if (art){ window.scrollTo(0,0); if (h==='apostil'){ const a=$('apo'); setTimeout(()=>a.classList.add('on'), 300); } }
     else if (was === 'article' && h){ const t=document.getElementById(h); if (t) setTimeout(()=>t.scrollIntoView(), 0); }
   }
+  document.addEventListener('click',e=>{ const a=e.target.closest('a[data-toc]'); if (!a) return; e.preventDefault(); const t=document.getElementById(a.getAttribute('href').slice(1)); if (t) t.scrollIntoView({behavior:'smooth'}); });
   window.addEventListener('hashchange', route); route();
 
   /* ---------- mobile nav ---------- */
