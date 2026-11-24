@@ -470,6 +470,9 @@ body.lm-open{overflow:hidden}
 .bi ul{list-style:none;margin:7px 0 0;padding:0;display:grid;gap:3px;font-size:12.5px;line-height:1.35}
 .bi li{padding-left:14px;position:relative}
 .bi li::before{content:"";position:absolute;left:2px;top:7px;width:5px;height:5px;border-radius:50%;background:var(--c);opacity:.7}
+.bi-seg{display:inline-flex;margin-top:8px;background:var(--paper);border-radius:999px;padding:3px;border:1px solid var(--line)}
+.bi-seg button{border:0;background:none;font:600 12px var(--body);color:var(--muted);padding:4px 10px;border-radius:999px;cursor:pointer}
+.bi-seg button[aria-pressed="true"]{background:var(--c);color:#fff}
 .bld-side{position:sticky;top:84px;display:grid;gap:10px}
 @media (max-width:980px){.bld-side{position:relative;top:0}}
 .bp-page{position:relative;border-radius:12px;padding:12px 12px 26px;background:repeating-linear-gradient(0deg,transparent 0 22px,rgba(70,120,110,.05) 22px 23px),linear-gradient(160deg,#EEF4F0,#DDE9E4);box-shadow:0 30px 60px -28px rgba(24,38,91,.45)}
@@ -989,21 +992,22 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
           <div class="bi-t">Банк</div><div class="bi-s">Счёт и карты</div>
           <ul><li>Дебетовая и кредитная карта</li><li>Доверенность и получение карт</li><li>Активация и код-пароль</li><li>Личный кабинет банка</li><li>Переоформление сим-карт на вас</li></ul>
         </div>
-        <div class="bi" role="checkbox" aria-checked="false" tabindex="0" data-id="sup6" style="--c:#B8862F">
-          <div class="bi-top"><span class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></span><span class="bi-box" aria-hidden="true"></span></div>
-          <div class="bi-t">Поддержка 6 месяцев</div><div class="bi-s">Менеджер на связи</div>
-          <ul><li>Личный менеджер отвечает на вопросы</li><li>Помощь с письмами, звонками, записями</li></ul>
+        <div class="bi" role="checkbox" aria-checked="false" tabindex="0" data-id="absorb" style="--c:#2E7F8F">
+          <div class="bi-top"><span class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16l-1.6 9a1.5 1.5 0 0 1-1.5 1.2H7.1a1.5 1.5 0 0 1-1.5-1.2z"/><path d="M8 10l3-6M16 10l-3-6M9 14v3M12 14v3M15 14v3"/></svg></span><span class="bi-box" aria-hidden="true"></span></div>
+          <div class="bi-t">Корзина абсорбции</div><div class="bi-s">Министерство алии</div>
+          <ul><li>Поездка в министерство абсорбции и алии</li><li>Оформление корзины абсорбции</li></ul>
         </div>
-        <div class="bi" role="checkbox" aria-checked="false" tabindex="0" data-id="sup12" style="--c:#B8862F">
-          <div class="bi-top"><span class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/><path d="M9.5 14.5l1.8 1.8 3.4-3.6"/></svg></span><span class="bi-box" aria-hidden="true"></span></div>
-          <div class="bi-t">Поддержка 12 месяцев</div><div class="bi-s">Целый год рядом</div>
-          <ul><li>Всё из поддержки на 6 месяцев</li><li>Сопровождение весь первый год</li></ul>
+        <div class="bi" role="checkbox" aria-checked="false" tabindex="0" data-id="sup" data-period="6" style="--c:#B8862F">
+          <div class="bi-top"><span class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></span><span class="bi-box" aria-hidden="true"></span></div>
+          <div class="bi-t">Поддержка</div><div class="bi-s">Менеджер на связи</div>
+          <div class="bi-seg" role="group" aria-label="Срок поддержки"><button type="button" data-p="6" aria-pressed="true">6 мес</button><button type="button" data-p="12" aria-pressed="false">12 мес</button></div>
+          <ul><li>Отвечаем на вопросы</li><li>Помогаем с письмами, звонками, записями</li></ul>
         </div>
       </div>
       <aside class="bld-side">
         <div class="bp-page" id="bp-page">
           <div class="bp-h"><span>МОЙ ПАКЕТ</span><span class="he">החבילה שלי</span></div>
-          <div class="bp-slots"><div class="slot pre"><div class="bst round" style="--c:#8FA6A1;--r:-12deg"><b>Ben Gurion</b>arrival</div></div><div class="slot" data-slot="mvd"><span class="slot-e">МВД</span><div class="bst round" style="--c:#2F5C9A;--r:-8deg"><b>МВД</b><span class="bst-s">паспорта</span></div></div><div class="slot" data-slot="drive"><span class="slot-e">Права</span><div class="bst rect" style="--c:#B5473A;--r:6deg"><b>Права</b><span class="bst-s">оформлены</span></div></div><div class="slot" data-slot="kupa"><span class="slot-e">Купат холим</span><div class="bst rect" style="--c:#3E7A57;--r:-4deg"><b>Купат холим</b><span class="bst-s">карта ✓</span></div></div><div class="slot" data-slot="bank"><span class="slot-e">Банк</span><div class="bst round" style="--c:#7A4FA0;--r:9deg"><b>Банк</b><span class="bst-s">счёт открыт</span></div></div><div class="slot" data-slot="sup"><span class="slot-e">Поддержка</span><div class="bst oval" style="--c:#B8862F;--r:-6deg"><b>Поддержка</b><span class="bst-s"></span></div></div></div>
+          <div class="bp-slots"><div class="slot" data-slot="mvd"><span class="slot-e">МВД</span><div class="bst round" style="--c:#2F5C9A;--r:-8deg"><b>МВД</b><span class="bst-s">паспорта</span></div></div><div class="slot" data-slot="drive"><span class="slot-e">Права</span><div class="bst rect" style="--c:#B5473A;--r:6deg"><b>Права</b><span class="bst-s">оформлены</span></div></div><div class="slot" data-slot="kupa"><span class="slot-e">Купат холим</span><div class="bst rect" style="--c:#3E7A57;--r:-4deg"><b>Купат холим</b><span class="bst-s">карта ✓</span></div></div><div class="slot" data-slot="bank"><span class="slot-e">Банк</span><div class="bst round" style="--c:#7A4FA0;--r:9deg"><b>Банк</b><span class="bst-s">счёт открыт</span></div></div><div class="slot" data-slot="absorb"><span class="slot-e">Корзина</span><div class="bst rect" style="--c:#2E7F8F;--r:5deg"><b>Корзина</b><span class="bst-s">абсорбции</span></div></div><div class="slot" data-slot="sup"><span class="slot-e">Поддержка</span><div class="bst oval" style="--c:#B8862F;--r:-6deg"><b>Поддержка</b><span class="bst-s"></span></div></div></div>
           <div class="bp-pn">— 1 —</div>
         </div>
         <div class="bld-bar">
@@ -1362,28 +1366,31 @@ footer .he{font-family:var(--hebrew);font-size:22px;color:#fff}
   /* ---------- service builder ---------- */
   (function(){
     const tiles=[...document.querySelectorAll('.bi')], cnt=$('bld-count'), send=$('bld-send');
-    const NAMES={mvd:'МВД',drive:'Водительские права',kupa:'Больничная касса',bank:'Банк',sup6:'Поддержка 6 месяцев',sup12:'Поддержка 12 месяцев'};
+    const NAMES={mvd:'МВД',drive:'Водительские права',kupa:'Больничная касса',bank:'Банк',absorb:'Корзина абсорбции'};
     function word(n){ const m10=n%10,m100=n%100; return (m10===1&&m100!==11)?'услуга':(m10>=2&&m10<=4&&(m100<12||m100>14))?'услуги':'услуг'; }
     function sync(){
-      const on=tiles.filter(t=>t.getAttribute('aria-checked')==='true').map(t=>t.dataset.id);
-      ['mvd','drive','kupa','bank'].forEach(id=>document.querySelector('.slot[data-slot="'+id+'"]').classList.toggle('on',on.includes(id)));
-      const sup=document.querySelector('.slot[data-slot="sup"]'), sid=on.find(x=>x.startsWith('sup'));
-      sup.classList.toggle('on',!!sid); sup.querySelector('.bst-s').textContent=sid==='sup12'?'12 месяцев':sid==='sup6'?'6 месяцев':'';
-      window.__bldPicked=on.map(id=>NAMES[id]);
+      const on=tiles.filter(t=>t.getAttribute('aria-checked')==='true');
+      tiles.forEach(t=>{ const sl=document.querySelector('.slot[data-slot="'+t.dataset.id+'"]'); if (sl) sl.classList.toggle('on',t.getAttribute('aria-checked')==='true'); });
+      const sup=tiles.find(t=>t.dataset.id==='sup'), per=sup.dataset.period;
+      document.querySelector('.slot[data-slot="sup"] .bst-s').textContent=per+' месяцев';
+      window.__bldPicked=on.map(t=>t.dataset.id==='sup'?'Поддержка '+per+' месяцев':NAMES[t.dataset.id]);
       cnt.textContent=on.length?('Выбрано: '+on.length+' '+word(on.length)):'Пока ничего не выбрано';
       send.disabled=!on.length;
     }
-    function toggle(t){
-      const was=t.getAttribute('aria-checked')==='true';
-      if (!was && t.dataset.id.startsWith('sup')) tiles.forEach(x=>{ if (x!==t && x.dataset.id.startsWith('sup')) x.setAttribute('aria-checked','false'); });
-      t.setAttribute('aria-checked', String(!was));
-      const sl=document.querySelector('.slot[data-slot="'+(t.dataset.id.startsWith('sup')?'sup':t.dataset.id)+'"]');
-      if (sl && !was){ sl.classList.remove('on'); void sl.offsetWidth; }
+    function stamp(id){ const sl=document.querySelector('.slot[data-slot="'+id+'"]'); if (sl){ sl.classList.remove('on'); void sl.offsetWidth; } }
+    function toggle(t, force){
+      const was=t.getAttribute('aria-checked')==='true', now=force===undefined?!was:force;
+      t.setAttribute('aria-checked', String(now));
+      if (now && (!was || force!==undefined)) stamp(t.dataset.id);
       sync();
     }
     tiles.forEach(t=>{
-      t.addEventListener('click',()=>toggle(t));
-      t.addEventListener('keydown',e=>{ if (e.key===' '||e.key==='Enter'){ e.preventDefault(); toggle(t); } });
+      t.addEventListener('click',e=>{
+        const seg=e.target.closest('.bi-seg button');
+        if (seg){ t.dataset.period=seg.dataset.p; t.querySelectorAll('.bi-seg button').forEach(x=>x.setAttribute('aria-pressed',String(x===seg))); toggle(t,true); return; }
+        toggle(t);
+      });
+      t.addEventListener('keydown',e=>{ if ((e.key===' '||e.key==='Enter') && !e.target.closest('.bi-seg')){ e.preventDefault(); toggle(t); } });
     });
     send.addEventListener('click',()=>{ if (!send.disabled) openLead('builder',send); });
     sync();
