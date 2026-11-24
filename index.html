@@ -173,8 +173,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
   .fl-home{right:18px;font-size:11px;padding:6px 10px}
   /* process: slim sticky visa strip, stamps land while you scroll the steps */
   .proc-grid{gap:14px}
-  .visa-wrap{position:sticky;top:calc(62px + env(safe-area-inset-top,0px));z-index:6;order:-1}
-  .visa{aspect-ratio:auto;height:118px;max-width:none;padding:10px 12px;border-radius:12px;box-shadow:0 14px 30px -18px rgba(24,38,91,.55)}
+  #proces .visa-wrap{position:sticky;top:calc(62px + env(safe-area-inset-top,0px));z-index:6;order:-1}
+  #proces .visa{aspect-ratio:auto;height:118px;max-width:none;padding:10px 12px;border-radius:12px;box-shadow:0 14px 30px -18px rgba(24,38,91,.55)}
   .visa .vh{font-size:9px}
   .visa .pn{display:none}
   .vst{font-size:8px;padding:5px 7px;border-width:2px}
@@ -182,7 +182,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
   .vst.round{width:74px;height:74px}
   .v1{top:30px;left:4%}.v2{top:18px;left:38%;right:auto}.v3{top:32px;left:auto;right:3%;bottom:auto}
   /* builder: the passport becomes a mini stamp strip inside the sticky bar */
-  .bld-side{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));top:auto;z-index:6;gap:0}
+  #builder .bld-side{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));top:auto;z-index:6;gap:0;align-self:end}
+  #builder .bld-bar{position:static;box-shadow:0 -8px 30px -12px rgba(24,38,91,.35)}
+  #builder .bld-grid{display:flex;flex-direction:column}
   .bp-page{display:none}
   .bld-bar{flex-direction:column;align-items:stretch;gap:10px;padding:12px}
   .bld-bar .btn{justify-content:center}
